@@ -78,7 +78,8 @@ response parsed cleanly.
 
 | File | What it is |
 | --- | --- |
-| [`presentation.html`](presentation.html) | The 10-slide presentation (open in a browser). |
+| [`Automated-Feedback-Analysis-Jason-Teixeira.pptx`](Automated-Feedback-Analysis-Jason-Teixeira.pptx) | The 10-slide presentation (PowerPoint — imports into Google Slides). |
+| [`presentation.html`](presentation.html) | The same deck as a web page (open in a browser). |
 | [`PRESENTATION.md`](PRESENTATION.md) | The full slide content + a spoken demo script. |
 | [`prompt.txt`](prompt.txt) | The exact Gemini prompt used in the Make module. |
 | [`test-data.csv`](test-data.csv) | The 7 test responses and their expected AI output. |
