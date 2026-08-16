@@ -1,5 +1,9 @@
 # Build guide — do this once (~15 min)
 
+> **Status: DONE (2026-08-16).** The form, scenario, sheet, screenshots, blueprint
+> export, and share links are all live — see the Submission links in
+> [README.md](README.md). This guide stays as the record of how it was built.
+
 Everything else in this folder is ready. These are the only steps that must happen
 in your own accounts, because they produce the real proof a reviewer checks.
 

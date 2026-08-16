@@ -5,12 +5,23 @@ Use exactly these two keys:
   "sentiment": one of "Positive", "Neutral", or "Negative"
   "summary": a 1-sentence, third-person recap of the feedback
 
+Classification rules:
+- Positive: the customer is clearly happy, even if they mention a small hiccup
+  that was resolved.
+- Neutral: mixed or mild feedback, minor gripes about an otherwise acceptable
+  experience, or flat "it does the job" comments.
+- Negative: clear dissatisfaction or an unresolved problem that needs action
+  (billing issues, bugs, no support response, refund requests).
+
 If the feedback is empty, return:
 {"sentiment":"Neutral","summary":"No feedback text was provided."}
 
-Feedback: {{the feedback field from the form}}
+Feedback: {{the feedback answer mapped from the form}}
 
 --- Module settings ---
 Model: gemini-2.5-flash
 Temperature: 0.2   (keeps sentiment consistent across similar messages)
-Response format: JSON, if the module offers it
+
+Note: the classification rules were added after testing. A borderline comment
+("packaging was excessive") flip-flopped between Neutral and Negative across
+runs; the explicit rules pinned it down.

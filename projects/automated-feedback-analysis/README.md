@@ -1,22 +1,21 @@
 # Automated Customer Feedback Analysis
 
-An automated pipeline that collects customer feedback, analyzes it with AI, and turns
-it into structured, real-time insight — with no manual steps.
+An automated pipeline that collects customer feedback, runs it through AI, and turns it
+into structured insight in real time. No manual steps anywhere.
 
-Built for the scenario of a **Customer Success Manager** at a small online business who
-needs to collect, analyze, and act on feedback fast enough to keep customers happy and
-catch problems before they escalate.
+The scenario: I'm a Customer Success Manager at a small online business. Feedback comes
+in faster than anyone can read it, and the angry messages are the ones you can't afford
+to sit on for days.
 
-## Overview (one-paragraph description)
+## Overview
 
-A Google Form collects a satisfaction rating and a free-text comment. A Make scenario
-then sends the comment to **Gemini 2.5 Flash**, which returns a sentiment classification
-(Positive, Neutral, or Negative) and a one-sentence summary in a strict JSON format. A
-JSON-parsing step extracts those fields, **Google Sheets** logs every response with a
-timestamp, and a filter emails an instant alert whenever feedback is negative — so
-unhappy customers are caught the same day instead of days later. The whole pipeline runs
-hands-off from a single form submission, turning unstructured feedback into a clean,
-analyzable log and a real-time early-warning system.
+A Google Form collects a satisfaction rating and a free-text comment. When a response
+comes in, a Make scenario sends the comment to **Gemini 2.5 Flash**, which returns a
+sentiment label (Positive, Neutral, or Negative) plus a one-sentence summary in a strict
+JSON format. A JSON parsing step pulls out those two fields, **Google Sheets** logs the
+full response with a timestamp, and if the sentiment is Negative, a filter fires off an
+email alert so the unhappy customer gets caught the same day instead of whenever someone
+next opens the spreadsheet. One form submission is all it takes.
 
 ## Tools
 
@@ -28,25 +27,23 @@ analyzable log and a real-time early-warning system.
 
 ## How the automation works
 
-This workflow runs entirely on its own — one form submission is all it takes, and the
-insight files itself with no manual steps.
+A customer submits the Google Form (a satisfaction rating and a free-text comment).
+That submission triggers the Make scenario. Make hands the comment to Gemini 2.5 Flash,
+which reads it and returns two things in strict JSON: a sentiment label and a
+one-sentence summary. A JSON parsing step extracts both fields. Google Sheets then adds
+a new row with the timestamp, satisfaction rating, original feedback, sentiment, and
+summary. Last step is a filter that checks the sentiment: if it's Negative, Make sends
+me an email with the summary and a link to the sheet.
 
-When a customer submits the **Google Form** (a satisfaction rating plus a free-text
-comment), that submission triggers a **Make scenario**. Make passes the comment to
-**Gemini 2.5 Flash**, which reads the message and returns two things in a strict JSON
-format: a **sentiment** label (Positive, Neutral, or Negative) and a **one-sentence
-summary**. A **JSON parsing** step then pulls those two fields out of the AI's response.
-Next, **Google Sheets** adds a new row containing the timestamp, satisfaction rating,
-original feedback, sentiment, and summary — a clean, analyzable log. Finally, a
-**filter** checks the sentiment: if it's Negative, Make sends an **email alert** with the
-summary and a link to the sheet.
-
-The one part that took real work was the AI output. The initial prompt returned the right
-information but kept wrapping it in a Markdown code block and occasionally added a
-sentence before it — which broke the parser. I rewrote the prompt to force *only* raw
-JSON (no fences, no extra text), added a fallback for empty feedback, and lowered the
-model temperature to `0.2` so the classifications stay consistent. After that, every
-response parsed cleanly.
+The part that took real work was the AI output. The starter prompt returned the right
+information but kept wrapping it in a Markdown code block, and every so often it added a
+sentence before the JSON. Both of those broke the parser. I rewrote the prompt to demand
+raw JSON only, with nothing before or after it, added a fallback for empty feedback, and
+dropped the model temperature to `0.2`. One more issue showed up in testing: a borderline
+comment ("packaging was excessive") flip-flopped between Neutral and Negative across
+runs. Adding explicit classification rules to the prompt fixed it — mild gripes stay
+Neutral, and Negative is reserved for real problems that need action. After that, every
+response parsed cleanly and classified the same way on every run.
 
 ### Workflow diagram
 
@@ -87,33 +84,31 @@ response parsed cleanly.
 
 ## Insights from the test run
 
-Across 7 test submissions the split was **3 Positive · 2 Neutral · 2 Negative**. The
-useful part wasn't the split — it was the pattern in the negatives: both unhappy customers
-were describing the same class of problem, **billing and account reliability** (a
-double-charge with no reply, and repeated forced logouts). That's a concrete,
-prioritizable signal, not just "people are unhappy."
+Across 7 test submissions the split came out **3 Positive · 2 Neutral · 2 Negative**.
+The split itself isn't the interesting part. What stood out is that both negatives
+described the same class of problem: billing and account reliability (a double-charge
+with no reply, and repeated forced logouts). That's something a team can actually
+prioritize, not just a vague "some customers are unhappy."
 
 ## What I'd improve with more time and tools
 
-- **Route alerts to Slack**, not just email — post negatives into a `#customer-alerts`
-  channel so the whole team sees them, with a reaction to mark who's handling each one.
-- **Add a topic tag** — extend the prompt so the AI also returns a category (billing,
-  shipping, bug, praise), turning the sheet from something you read into something you can
+- **Slack alerts** — post negatives into a `#customer-alerts` channel instead of just
+  email, so the whole team sees them and someone can claim each one with a reaction.
+- **Topic tags** — extend the prompt so the AI also returns a category (billing,
+  shipping, bug, praise). The sheet goes from something you read to something you can
   filter and trend.
-- **Fallback logic** — if Gemini ever returns malformed JSON, catch it and write
-  "needs review" instead of letting the scenario error out.
-- **A live dashboard** — a Looker Studio chart on top of the sheet showing sentiment over
-  time, so trends are visible at a glance.
-- **Priority scoring** — flag responses that are both "Very unsatisfied" and Negative as
-  high-priority, so the loudest alarms rise to the top.
+- **Fallback logic** — if Gemini ever returns malformed JSON, catch it and log the row
+  as "needs review" rather than letting the scenario error out.
+- **A live dashboard** — a Looker Studio chart on top of the sheet showing sentiment
+  over time.
+- **Priority scoring** — anything that's both "Very unsatisfied" and Negative gets
+  flagged high-priority, so the loudest alarms rise to the top.
 
 ## Submission links
 
-> Replace the placeholders below with your own links after building the scenario.
-
-- **Make scenario blueprint:** `TODO — export via ⋯ → Export blueprint, upload to Drive, share "anyone with link can view", paste URL here`
-- **Google Sheet (test data):** `TODO — share "anyone with link can view", paste URL here`
-- **Google Slides (if used):** `TODO — paste URL here`
+- **Make scenario blueprint (Drive, view-only):** https://drive.google.com/file/d/1mFRXlwrmPMcy_1W7vSgARE3hg_QLvR9J/view?usp=sharing (also in [`assets/blueprint.json`](assets/blueprint.json))
+- **Google Sheet (live test data, view-only):** https://docs.google.com/spreadsheets/d/1L-kVnd12jnnij_LtLvnCo6Gdk9jjtZIxbvY9c5mPjNQ/edit?usp=sharing
+- **Google Slides:** https://docs.google.com/presentation/d/1m3MkKktEcnunVZ3gSGPlA_2q3-LNyqh0MEEzUg_8koM/edit?usp=sharing
 
 ---
 

@@ -1,10 +1,13 @@
-# Screenshots
+# Assets
 
-Drop your real screenshots here after building and running the scenario, then
-reference them from the presentation:
+Real artifacts from the live build (2026-08-16):
 
-- `workflow.png`   — the full Make scenario canvas showing all 5 modules connected
-- `sheet.png`      — the Google Sheet with the Sentiment / Summary / Timestamp columns filled
-- `alert-email.png`— (optional) the negative-feedback alert email in your inbox
-
-These are the parts a reviewer looks for as proof the automation actually runs.
+- `workflow.png` — the Make scenario canvas right after a successful run: all 5
+  modules connected, 7 responses processed, the "Only negative feedback" filter
+  on the email leg.
+- `sheet.png` — the Google Sheet with all 7 rows filled in (Timestamp,
+  Satisfaction, Feedback, Sentiment, Summary).
+- `alert-email.png` — one of the two real alert emails in the inbox, sent the
+  same minute the negative response was processed.
+- `blueprint.json` — the exported Make scenario blueprint (also shared on
+  Drive; see the Submission links in the project README).

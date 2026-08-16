@@ -71,7 +71,7 @@
     <span class="num">01</span>
     <span class="kicker">Customer Success · Automation Project</span>
     <h1>Automated Customer Feedback Analysis</h1>
-    <p class="lead">Turning a pile of raw customer feedback into structured, real-time insight — so nothing slips through and unhappy customers get caught the same day.</p>
+    <p class="lead">Raw customer feedback in, structured real-time insight out. Nothing slips through, and unhappy customers get caught the same day.</p>
     <div style="margin-top:18px">
       <span class="tool"><i style="background:#7b53c9"></i>Google Forms</span>
       <span class="tool"><i style="background:#6a4bd6"></i>Make</span>
@@ -86,13 +86,13 @@
     <span class="num">02</span>
     <span class="kicker">The problem</span>
     <h2>Feedback is only useful if you actually read it — fast</h2>
-    <p>As the Customer Success Manager for a small online store, feedback comes in through a form and just... sits in a spreadsheet. Reading every response by hand doesn't scale, and the responses that matter most — the angry ones — are exactly the ones you can't afford to miss for three days.</p>
+    <p>As the Customer Success Manager for a small online store, feedback comes in through a form and just... sits in a spreadsheet. Reading every response by hand doesn't scale, and the responses that matter most (the angry ones) are exactly the ones you can't afford to miss for three days.</p>
     <div class="grid g3" style="margin-top:14px">
       <div class="tile"><b>Slow</b><span>Manual reading means insights arrive late, if at all.</span></div>
       <div class="tile"><b>Inconsistent</b><span>Different people "score" the same message differently.</span></div>
       <div class="tile"><b>Risky</b><span>One overlooked complaint can turn into a public blow-up.</span></div>
     </div>
-    <p style="margin-top:14px">So I built a workflow that reads, classifies, and files every response automatically — and pings me the moment something goes negative.</p>
+    <p style="margin-top:14px">So I built a workflow that reads, classifies, and files every response automatically, and pings me the moment something goes negative.</p>
   </section>
 
   <!-- 3 · WHAT I BUILT -->
@@ -134,7 +134,7 @@
     <span class="num">05</span>
     <span class="kicker">The AI part — and the catch</span>
     <h2>Getting clean JSON was the real work</h2>
-    <p>The starter prompt returned the right <i>idea</i>, but it kept wrapping the answer in a Markdown code block (<code>```json … ```</code>) and occasionally added a friendly sentence before it. The JSON parser choked on both. Fixing that was the actual engineering here — I had to constrain the output hard:</p>
+    <p>The starter prompt returned the right <i>idea</i>, but it kept wrapping the answer in a Markdown code block (<code>```json … ```</code>) and occasionally added a friendly sentence before it. The JSON parser choked on both. Fixing that was the actual engineering here. I had to constrain the output hard:</p>
     <pre><span class="c">// final prompt used in the Gemini module</span>
 You are a customer-feedback analyst. Analyze the feedback below and return
 <span class="k">ONLY</span> one JSON object. No Markdown, no code fences, no text before or after it.
@@ -180,7 +180,7 @@ Feedback: {{1.feedback_text}}</pre>
       <div class="bar"><span class="lbl">Neutral</span><span class="track"><span class="fill" style="width:29%;background:var(--neu)"></span></span><span class="n">2</span></div>
       <div class="bar"><span class="lbl">Negative</span><span class="track"><span class="fill" style="width:29%;background:var(--neg)"></span></span><span class="n">2</span></div>
     </div>
-    <p style="margin-top:14px">The useful part wasn't the split — it was the <b>pattern in the negatives</b>. Both unhappy customers were describing the same class of problem: <b>billing and account reliability</b> (a double-charge with no reply, and repeated forced logouts). That's a concrete, prioritizable signal — not "people are unhappy," but "fix the billing response time and the session bug first."</p>
+    <p style="margin-top:14px">The useful part wasn't the split. It was the <b>pattern in the negatives</b>: both unhappy customers were describing the same class of problem, <b>billing and account reliability</b> (a double-charge with no reply, and repeated forced logouts). That's something a team can actually go fix, instead of a vague "some customers are unhappy."</p>
   </section>
 
   <!-- 8 · ALERTS -->
@@ -188,7 +188,7 @@ Feedback: {{1.feedback_text}}</pre>
     <span class="num">08</span>
     <span class="kicker">Optional · shipped it anyway</span>
     <h2>Real-time alerts for negative feedback</h2>
-    <p>I added a filter after the parse step: if <code>sentiment = "Negative"</code>, Make sends an email straight to my inbox with the summary and a link to the sheet. That turns a passive log into an early-warning system — the whole point of catching an upset customer while I can still fix it.</p>
+    <p>I added a filter after the parse step: if <code>sentiment = "Negative"</code>, Make sends an email straight to my inbox with the summary and a link to the sheet. That turns a passive log into an early-warning system, which is the whole point: catch the upset customer while there's still time to fix it.</p>
     <pre><span class="c">Filter:  sentiment  Equal to  Negative</span>
 Subject: ⚠️ Negative feedback just came in
 Body:    {{summary}}
@@ -217,8 +217,8 @@ Body:    {{summary}}
     <h2>Links &amp; submission</h2>
     <table>
       <tbody>
-        <tr><td><b>Make scenario blueprint</b><br><span class="muted" style="font-size:13px">Exported JSON, shared "anyone with the link can view"</span></td><td class="mono">[ paste link ]</td></tr>
-        <tr><td><b>Google Sheet</b><br><span class="muted" style="font-size:13px">Live test data</span></td><td class="mono">[ paste link ]</td></tr>
+        <tr><td><b>Make scenario blueprint</b><br><span class="muted" style="font-size:13px">Exported JSON, shared "anyone with the link can view"</span></td><td class="mono"><a href="https://drive.google.com/file/d/1mFRXlwrmPMcy_1W7vSgARE3hg_QLvR9J/view?usp=sharing">drive.google.com/file/d/1mFRXlwrmPMcy…</a></td></tr>
+        <tr><td><b>Google Sheet</b><br><span class="muted" style="font-size:13px">Live test data</span></td><td class="mono"><a href="https://docs.google.com/spreadsheets/d/1L-kVnd12jnnij_LtLvnCo6Gdk9jjtZIxbvY9c5mPjNQ/edit?usp=sharing">docs.google.com/spreadsheets/d/1L-kVnd…</a></td></tr>
       </tbody>
     </table>
     <p class="foot" style="margin-top:18px">Thanks for reviewing. Everything above runs hands-off — one form submission, and the insight files itself.</p>
