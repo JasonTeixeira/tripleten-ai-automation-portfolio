@@ -90,6 +90,17 @@ described the same class of problem: billing and account reliability (a double-c
 with no reply, and repeated forced logouts). That's something a team can actually
 prioritize, not just a vague "some customers are unhappy."
 
+## Extras beyond the brief
+
+- **Email alert** (the optional step) is fully built and tested — two real alerts fired
+  on the verification run.
+- **Color-coded sentiment in the Sheet** — conditional formatting turns Positive cells
+  green and Negative cells red, so the log reads at a glance.
+- **Fallback logic in the prompt** — empty feedback returns a fixed Neutral JSON object
+  instead of confusing the parser.
+- **Classification rules in the prompt** — added after testing caught a borderline
+  comment flip-flopping between runs.
+
 ## What I'd improve with more time and tools
 
 - **Slack alerts** — post negatives into a `#customer-alerts` channel instead of just
