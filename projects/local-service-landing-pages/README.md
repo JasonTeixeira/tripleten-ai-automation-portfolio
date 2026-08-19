@@ -69,8 +69,8 @@ The two files in `pages/` are the full, standalone source for each landing page 
 - [x] Working CTA behavior — every button opens a modal form and confirms; nav links smooth-scroll; no dead buttons
 - [x] Published links + 3–5 sentence rationale per case, in the Google Doc
 
-## Extras (bonus)
+## Bonus challenges (all three done)
 
-- [x] Multiple AI visuals per page in two styles (photographic hero + flat-vector banner)
-- [x] Extra sections that support the goal — services, pricing, an FAQ on the grooming page and a "how it works" flow on the cleaning page
-- [x] Trust-building details throughout: guarantees, cage-free / background-checked promises, star ratings
+- [x] **Multiple AI visuals in different styles** — each live page pairs a photographic AI hero with a flat-vector AI illustration banner of the service's tools, so two distinct AI styles appear on every page.
+- [x] **Experiment with different CTAs** — three CTA copy variants were written and judged per page; the strongest shipped. Full writeup: [CTA-EXPERIMENT.md](CTA-EXPERIMENT.md).
+- [x] **Extra sections that support the goal** — services, pricing tiers, an FAQ on the grooming page and a "how it works" flow on the cleaning page, plus trust cues (guarantees, cage-free / background-checked promises, star ratings).
