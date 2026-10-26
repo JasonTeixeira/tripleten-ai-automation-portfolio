@@ -9,11 +9,13 @@ for the recorded local gate results.
 
 ## Live proof still required
 
+See [LIVE_PROGRESS.md](LIVE_PROGRESS.md) for the current external test record.
+
 | Evidence | Status | Suggested screenshot |
 |---|---|---|
 | Postman success with Miami response and imperial query | Not run | 01-postman-redacted.png |
-| Full Zap canvas with field mappings | Not built in a live account | 02-zap-workflow.png |
-| Gemini prompt and actual output | Not run | 03-gemini-prompt-output.png |
+| Full Zap canvas with field mappings | Schedule and Webhooks editor tests passed; remaining steps incomplete | 02-zap-workflow.png |
+| Gemini prompt and actual output | Direct API generation passed; Zapier step pending | 03-gemini-prompt-output.png |
 | Daily email received in confirmed test inbox | Not sent | 04-received-daily-email.png |
 | Clear sky at 91°F, regular email and no extra alert | Not run live | 05-boundary-no-alert.png |
 | Synthetic 91.1°F, regular email and heat alert | Not run live | 06-heat-alert.png |
@@ -23,4 +25,5 @@ for the recorded local gate results.
 For each test, record time, input source, observed result, and screenshot filename.
 Label edited/synthetic weather explicitly. Redact API keys, connection details,
 and unrelated inbox content before putting evidence in a public repository.
-No screenshots have been fabricated or supplied for these pending tests.
+Saved screenshots show only the actually completed portions. No screenshot proves
+delivery until a received email has been captured.

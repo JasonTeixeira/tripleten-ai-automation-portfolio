@@ -15,7 +15,9 @@ The example address `emily.davis@retail.com` is not a test destination.
 - Event: Every Day.
 - Time: 7:00 AM.
 - Weekends: Yes.
-- Account timezone: America/New_York. This is the setting Schedule uses.
+- Timezone Override (Optional): America/New_York, when this field is available.
+  This override is present in the current editor and was set on the live draft.
+  If your version lacks it, set the Zapier account timezone to America/New_York.
 
 ## 2. Test OpenWeather in Postman, then Zapier
 

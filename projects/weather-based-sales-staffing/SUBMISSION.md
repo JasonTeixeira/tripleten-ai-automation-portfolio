@@ -15,8 +15,8 @@ this project. The live workflow and final presentation remain pending.
 
 **Presentation template:** https://docs.google.com/presentation/d/1oSvomOtgMT6Z-msUzkPApBAOdD0wG976CkDw2cGDn7U/edit
 
-**Final presentation:** Not prepared yet. The template URL above is a reference,
-not a completed submission deck.
+**Presentation draft:** The linked Google deck is renamed and partially edited,
+but remains incomplete. It is not yet a submission-ready presentation.
 
 ## Before submitting
 
@@ -39,8 +39,11 @@ project as fully working based on local helper tests alone.
 
 - GitHub authentication verified and the reviewed project branch published.
 - Local build, syntax checks, 47 tests, and dependency audit passed again before publishing.
-- Zapier redirected to its login page. Google account chooser opened; existing
-  workspace account and sign-in completion require the owner.
-- Test inbox has not been provided. No emails sent and no recurring Zap activated.
+- Zapier sign-in and Gmail connection are now verified. The connected business
+  inbox will be used for tests. No emails sent and no recurring Zap activated.
+- Schedule and OpenWeather editor tests passed in the saved live Zap draft.
+- Direct OpenWeather and Gemini API tests passed. The Gemini Zapier connection
+  is awaiting completion in its open connection window.
 - No direct Google Drive or Gmail connector is confirmed connected in this session.
-- No live weather, AI output, inbox screenshots, or final deck has been fabricated.
+- Actual weather and AI output are saved under `evidence/`, with direct API tests
+  distinguished from Zapier tests. See `evidence/LIVE_PROGRESS.md`.

@@ -1,0 +1,60 @@
+{
+  "checked_at_utc": "2026-10-26T22:15:08.167411+00:00",
+  "request": {
+    "method": "GET",
+    "url": "https://api.openweathermap.org/data/2.5/weather",
+    "query": {
+      "q": "Miami,FL,US",
+      "units": "imperial",
+      "appid": "REDACTED"
+    }
+  },
+  "http_status": 200,
+  "response": {
+    "coord": {
+      "lon": -80.1937,
+      "lat": 25.7743
+    },
+    "weather": [
+      {
+        "id": 803,
+        "main": "Clouds",
+        "description": "broken clouds",
+        "icon": "04d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 79.92,
+      "feels_like": 79.92,
+      "temp_min": 78.01,
+      "temp_max": 81.01,
+      "pressure": 1013,
+      "humidity": 72,
+      "sea_level": 1013,
+      "grnd_level": 1012
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 18.41,
+      "deg": 40,
+      "gust": 31.07
+    },
+    "clouds": {
+      "all": 75
+    },
+    "dt": 1793052639,
+    "sys": {
+      "type": 2,
+      "id": 2009435,
+      "country": "US",
+      "sunrise": 1793013922,
+      "sunset": 1793054631
+    },
+    "timezone": -14400,
+    "id": 4164138,
+    "name": "Miami",
+    "cod": 200
+  },
+  "method_note": "Live command-line API test, not a Postman or Zapier run."
+}

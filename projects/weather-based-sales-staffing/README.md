@@ -9,10 +9,12 @@ This project prepares a morning email with product priorities, a staffing sugges
 and two short customer promos based on Miami weather. An optional second email flags
 heat, rain, or storms under the assignment's alert rule.
 
-**Status:** local build kit and automated validation tests are ready. The live Zap,
-Postman request, Gemini generation, inbox delivery, scheduled run, and final slide
-deck still need verification. The sample emails use synthetic weather and a
-hand-authored plan. They are not live test evidence.
+**Status:** the local validation tests pass, and the live Zap's Schedule and
+OpenWeather Webhooks steps passed their editor tests. Direct OpenWeather and
+Gemini API tests also succeeded, with a validated plan saved in `evidence/`.
+The Gemini connection inside Zapier, the remaining workflow steps, inbox delivery,
+scheduled execution, and final slide deck are still pending. No Postman test has
+been recorded. The files under `templates/` remain simulated examples.
 
 ## Workflow
 
@@ -63,6 +65,7 @@ plain-text sample emails locally. Neither command contacts an API or sends email
 | [templates/](templates/) | Clearly labeled simulated email examples |
 | [PRESENTATION.md](PRESENTATION.md) | Copy aligned to the supplied Google Slides template |
 | [evidence/README.md](evidence/README.md) | Live-proof checklist and test record |
+| [evidence/LIVE_PROGRESS.md](evidence/LIVE_PROGRESS.md) | Verified external checks and remaining work |
 | [SUBMISSION.md](SUBMISSION.md) | Submission links and remaining requirements |
 
 ## Decisions that matter
@@ -85,8 +88,9 @@ also stops. Independent alert delivery needs another route or Zap.
 an operational alert, including light rain. This matches the rubric and does not
 establish official severe-weather status. Drizzle alone does not match this rule.
 
-**Delivery timing.** The schedule uses the Zapier account timezone, set to
-America/New_York. Zapier may start within a few minutes of the chosen time.
+**Delivery timing.** The live draft uses the editor's America/New_York timezone
+override. Where that field is unavailable, configure the account timezone.
+Zapier may start within a few minutes of the chosen time.
 
 ## Safety and limits
 

@@ -1,0 +1,39 @@
+{
+  "checked_at_utc": "2026-10-26T22:15:34.116980+00:00",
+  "model": "gemini-2.5-flash",
+  "http_status": 200,
+  "weather_summary": "Miami, FL, current conditions: 79.92 \u00b0F \u2014 broken clouds. Humidity: 72%. Wind: 18.41 mph. Observed: 2026-10-26T18:10:39-04:00.",
+  "response_text": "{\n  \"product_focus\": \"Given the warm, humid, and breezy morning, cold drinks and gelato will likely be very popular. We should prioritize these, ensuring they are well-stocked and easily accessible. Hot drinks and pastries will still be appreciated, especially with the wind, but expect cold items to lead demand.\",\n  \"staffing_suggestion\": \"With the pleasant but breezy weather, we might see a good flow of customers. Consider having an extra person ready to jump in if demand for cold drinks and gelato picks up, to keep service smooth.\",\n  \"promos\": [\n    \"Beat the Miami heat and humidity with our refreshing cold drinks and creamy gelato!\",\n    \"Grab a delicious pastry and your favorite hot or cold brew to start your breezy beachside morning!\"\n  ]\n}",
+  "response": {
+    "candidates": [
+      {
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"product_focus\": \"Given the warm, humid, and breezy morning, cold drinks and gelato will likely be very popular. We should prioritize these, ensuring they are well-stocked and easily accessible. Hot drinks and pastries will still be appreciated, especially with the wind, but expect cold items to lead demand.\",\n  \"staffing_suggestion\": \"With the pleasant but breezy weather, we might see a good flow of customers. Consider having an extra person ready to jump in if demand for cold drinks and gelato picks up, to keep service smooth.\",\n  \"promos\": [\n    \"Beat the Miami heat and humidity with our refreshing cold drinks and creamy gelato!\",\n    \"Grab a delicious pastry and your favorite hot or cold brew to start your breezy beachside morning!\"\n  ]\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP",
+        "index": 0
+      }
+    ],
+    "usageMetadata": {
+      "promptTokenCount": 436,
+      "candidatesTokenCount": 167,
+      "totalTokenCount": 1276,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 436
+        }
+      ],
+      "thoughtsTokenCount": 673,
+      "serviceTier": "standard"
+    },
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "AdHfaqOxKbjgytMP4Pyt6A8"
+  },
+  "method_note": "Live direct Gemini API generation, not a Zapier step or email delivery."
+}

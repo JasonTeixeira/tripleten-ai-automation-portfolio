@@ -1,0 +1,9 @@
+{
+  "source": "Direct OpenWeather and Gemini API tests; not Zapier",
+  "validated_at": "2026-10-26T22:17:30.139Z",
+  "model": "gemini-2.5-flash",
+  "promo_1_characters": 83,
+  "promo_2_characters": 98,
+  "alert_required": false,
+  "structural_validation": "passed"
+}
