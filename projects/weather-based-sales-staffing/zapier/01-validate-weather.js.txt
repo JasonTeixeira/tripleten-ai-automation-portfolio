@@ -58,8 +58,10 @@ function prepareEmail(input, now = Date.now()) {
     throw new Error('AI response is missing or too long. Review the Gemini step.');
   }
   let plan;
-  try { plan = JSON.parse(input.ai_response); }
-  catch { throw new Error('AI response must be raw JSON. Review the Gemini step.'); }
+  const response = input.ai_response.trim();
+  const fenced = /^```(?:json)?\s*\n([\s\S]*?)\n```$/i.exec(response);
+  try { plan = JSON.parse(fenced ? fenced[1] : response); }
+  catch { throw new Error('AI response must be JSON, optionally in one complete JSON code fence. Review the Gemini step.'); }
   if (!plan || typeof plan !== 'object' || Array.isArray(plan)) throw new Error('Invalid AI plan object.');
   const focus = textField(plan.product_focus, 'product focus', 700);
   const staffing = textField(plan.staffing_suggestion, 'staffing suggestion', 500);
