@@ -128,6 +128,17 @@ test('counts Unicode characters consistently', () => {
   assert.equal(result.promo_1_characters, 119);
 });
 
+test('accepts a complete JSON code fence observed in the live Gemini action', () => {
+  const result = email({ ai_response: '```json\n' + plan() + '\n```' });
+  assert.match(result.body, /Product focus/);
+  assert.equal(result.promo_1_characters, 37);
+  assert.match(email({ ai_response: '```\n' + plan() + '\n```' }).body, /Staffing suggestion/);
+});
+
+test('rejects commentary around a JSON code fence', () => {
+  assert.throws(() => email({ ai_response: 'Here is your plan:\n```json\n' + plan() + '\n```' }), /JSON/);
+});
+
 test('rejects plans over the total word limit', () => {
   assert.throws(() => email({ ai_response: plan({ product_focus: 'a '.repeat(181).trim() }) }), /180 words/);
 });
