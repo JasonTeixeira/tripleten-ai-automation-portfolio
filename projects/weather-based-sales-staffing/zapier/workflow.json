@@ -1,0 +1,19 @@
+{
+  "format": "Human-readable setup manifest, NOT an importable Zapier export",
+  "name": "Bayside Brews & Scoops — Morning Weather Plan",
+  "timezone": "America/New_York",
+  "schedule": "Every day at 07:00, weekends included",
+  "weather_basis": "Current conditions, not a daily forecast",
+  "steps": [
+    { "app": "Schedule by Zapier", "event": "Every Day" },
+    { "app": "Webhooks by Zapier", "event": "GET", "url": "https://api.openweathermap.org/data/2.5/weather", "query": { "q": "Miami,FL,US", "units": "imperial", "appid": "ENTER_PRIVATELY_IN_ZAPIER" } },
+    { "app": "Code by Zapier", "event": "Run Javascript", "code": "01-validate-weather.js.txt", "inputs": ["temperature", "description", "humidity", "wind", "observed_at"] },
+    { "app": "Google AI Studio (Gemini)", "event": "Send Prompt", "prompt": "../prompt.txt", "mapping": "weather_summary from step 3" },
+    { "app": "Code by Zapier", "event": "Run Javascript", "code": "02-validate-plan-and-format-email.js.txt", "inputs": ["temperature", "description", "humidity", "wind", "observed_at", "ai_response"] },
+    { "app": "Gmail", "event": "Send Email", "body_type": "plain", "recipient": "YOUR_CONFIRMED_TEST_INBOX", "fields_from_step_5": ["subject", "body"] },
+    { "app": "Filter by Zapier", "condition": "step 5 alert_required (Boolean) Is true" },
+    { "app": "Gmail", "event": "Send Email", "body_type": "plain", "recipient": "YOUR_CONFIRMED_TEST_INBOX", "fields_from_step_5": ["alert_subject", "alert_body"] }
+  ],
+  "alert_rule": "temperature > 91 OR description contains storm OR description contains rain",
+  "status": "Local helpers tested. Live account connections and scheduled delivery not verified."
+}

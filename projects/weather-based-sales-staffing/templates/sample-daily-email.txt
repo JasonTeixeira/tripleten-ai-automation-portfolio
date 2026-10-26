@@ -1,0 +1,24 @@
+SIMULATED EXAMPLE: hand-authored plan and synthetic weather. No API call or email delivery.
+
+Subject: Daily Plan – Bayside Brews & Scoops (Miami, FL)
+
+Good morning, Emily 👋
+
+Here's today's starting point for Bayside Brews & Scoops.
+
+Miami, FL, current conditions: 86 °F — scattered clouds. Humidity: 78%. Wind: 8 mph. Observed: Oct 26, 2026, 7:00:00 AM EDT.
+
+Product focus
+Put cold drinks and gelato first for this warm, humid morning. Keep hot drinks available and prepare pastries in smaller batches.
+
+Staffing suggestion
+Keep the usual schedule. Review the afternoon forecast and early sales before asking one extra person to cover a busier period.
+
+Customer promos
+1. Warm morning? Make it an iced coffee kind of day.
+2. A little scoop of happiness from Bayside Brews & Scoops.
+
+Use this as a starting point and adjust for today's stock and team coverage.
+
+Your Bayside morning brief
+Scheduled for 7:00 AM Miami time • Powered by OpenWeather and Gemini

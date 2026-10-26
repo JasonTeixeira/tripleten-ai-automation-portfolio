@@ -1,0 +1,107 @@
+'use strict';
+
+function numberField(value, name, min, max) {
+  if ((typeof value !== 'string' && typeof value !== 'number') || String(value).trim() === '') {
+    throw new Error(`Missing or invalid ${name}. Check the source mapping.`);
+  }
+  const number = Number(value);
+  if (!Number.isFinite(number) || number < min || number > max) {
+    throw new Error(`Invalid ${name}. Check the source mapping and units.`);
+  }
+  return number;
+}
+
+function textField(value, name, max) {
+  if (typeof value !== 'string' || !value.trim() || [...value.trim()].length > max || /[<>\x00-\x1f\x7f]/.test(value)) {
+    throw new Error(`Invalid ${name}. Use short, single-line plain text.`);
+  }
+  return value.trim();
+}
+
+function optionalNumber(value, name, min, max) {
+  if (value === undefined || value === null || (typeof value === 'string' && !value.trim())) return null;
+  return numberField(value, name, min, max);
+}
+
+function prepareWeather(input, now = Date.now()) {
+  const temperature = numberField(input.temperature, 'temperature', -100, 150);
+  const description = textField(input.description, 'description', 200);
+  // OpenWeather descriptions are descriptive data, never prompt instructions.
+  if (!/^[a-zA-Z ,.-]+$/.test(description)) throw new Error('Invalid description from weather source.');
+  const humidity = optionalNumber(input.humidity, 'humidity', 0, 100);
+  const wind = optionalNumber(input.wind, 'wind', 0, 300);
+  const observed = numberField(input.observed_at, 'observation timestamp', 1, 1e11) * 1000;
+  if (now - observed > 3 * 60 * 60 * 1000 || observed - now > 10 * 60 * 1000) {
+    throw new Error('Weather observation is stale or in the future. Check manually.');
+  }
+  const localTime = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/New_York', dateStyle: 'medium', timeStyle: 'long',
+  }).format(new Date(observed));
+  const reasons = [];
+  if (temperature > 91) reasons.push('temperature above 91 °F');
+  if (/storm/i.test(description)) reasons.push('description contains storm');
+  if (/rain/i.test(description)) reasons.push('description contains rain');
+  const summary = `${temperature} °F — ${description}. Humidity: ${humidity === null ? 'unavailable' : `${humidity}%`}. Wind: ${wind === null ? 'unavailable' : `${wind} mph`}.`;
+  return {
+    temperature_f: temperature,
+    description,
+    local_observed_at: localTime,
+    weather_summary: `Miami, FL, current conditions: ${summary} Observed: ${localTime}.`,
+    alert_required: reasons.length > 0,
+    alert_reasons: reasons.join('; '),
+  };
+}
+
+function prepareEmail(input, now = Date.now()) {
+  const weather = prepareWeather(input, now);
+  if (typeof input.ai_response !== 'string' || input.ai_response.length > 12000) {
+    throw new Error('AI response is missing or too long. Review the Gemini step.');
+  }
+  let plan;
+  try { plan = JSON.parse(input.ai_response); }
+  catch { throw new Error('AI response must be raw JSON. Review the Gemini step.'); }
+  if (!plan || typeof plan !== 'object' || Array.isArray(plan)) throw new Error('Invalid AI plan object.');
+  const focus = textField(plan.product_focus, 'product focus', 700);
+  const staffing = textField(plan.staffing_suggestion, 'staffing suggestion', 500);
+  if (!Array.isArray(plan.promos) || plan.promos.length !== 2) throw new Error('AI plan requires exactly two promos.');
+  const promos = plan.promos.map((value) => textField(value, 'promo', 119));
+  if ([focus, staffing, ...promos].join(' ').split(/\s+/).length > 180) {
+    throw new Error('AI plan exceeds 180 words. Shorten the response.');
+  }
+  const body = [
+    'Good morning, Emily 👋',
+    "Here's today's starting point for Bayside Brews & Scoops.",
+    weather.weather_summary,
+    `Product focus\n${focus}`,
+    `Staffing suggestion\n${staffing}`,
+    `Customer promos\n1. ${promos[0]}\n2. ${promos[1]}`,
+    "Use this as a starting point and adjust for today's stock and team coverage.",
+    'Your Bayside morning brief\nScheduled for 7:00 AM Miami time • Powered by OpenWeather and Gemini',
+  ].join('\n\n');
+  const actions = [];
+  if (weather.temperature_f > 91) actions.push('Check cold-drink supplies and plan staff hydration breaks.');
+  if (/storm|rain/i.test(weather.description)) actions.push('Secure loose outdoor items and check official local weather guidance before outdoor operations.');
+  const alertBody = weather.alert_required ? [
+    'Hi Emily,',
+    `Our kiosk weather check met the alert rule: ${weather.alert_reasons}.`,
+    weather.weather_summary,
+    ...actions,
+    'This is a project-defined operations alert, not an official severe-weather warning.',
+    'Please review current conditions before making changes. Your regular daily plan has also been sent.',
+    'Bayside Brews & Scoops',
+  ].join('\n\n') : '';
+  return {
+    subject: 'Daily Plan – Bayside Brews & Scoops (Miami, FL)',
+    body,
+    alert_required: weather.alert_required,
+    alert_reasons: weather.alert_reasons,
+    alert_subject: '⚠️ Severe Weather Alert – Bayside Brews & Scoops',
+    alert_body: alertBody,
+    promo_1_characters: [...promos[0]].length,
+    promo_2_characters: [...promos[1]].length,
+  };
+}
+
+
+
+return prepareEmail(inputData);

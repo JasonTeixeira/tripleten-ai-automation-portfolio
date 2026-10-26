@@ -1,0 +1,19 @@
+SIMULATED EXAMPLE: synthetic heat and storm scenario. No email delivery.
+
+Subject: ⚠️ Severe Weather Alert – Bayside Brews & Scoops
+
+Hi Emily,
+
+Our kiosk weather check met the alert rule: temperature above 91 °F; description contains storm; description contains rain.
+
+Miami, FL, current conditions: 94 °F — thunderstorm with rain. Humidity: 78%. Wind: 8 mph. Observed: Oct 26, 2026, 7:00:00 AM EDT.
+
+Check cold-drink supplies and plan staff hydration breaks.
+
+Secure loose outdoor items and check official local weather guidance before outdoor operations.
+
+This is a project-defined operations alert, not an official severe-weather warning.
+
+Please review current conditions before making changes. Your regular daily plan has also been sent.
+
+Bayside Brews & Scoops

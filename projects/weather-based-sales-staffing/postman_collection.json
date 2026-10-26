@@ -1,0 +1,28 @@
+{
+  "info": {
+    "name": "Bayside Brews & Scoops — Miami weather",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [{
+    "name": "Miami current weather in Fahrenheit",
+    "request": {
+      "method": "GET",
+      "url": {
+        "raw": "https://api.openweathermap.org/data/2.5/weather?q=Miami,FL,US&units=imperial&appid={{OPENWEATHER_API_KEY}}",
+        "protocol": "https",
+        "host": ["api", "openweathermap", "org"],
+        "path": ["data", "2.5", "weather"],
+        "query": [
+          { "key": "q", "value": "Miami,FL,US" },
+          { "key": "units", "value": "imperial" },
+          { "key": "appid", "value": "{{OPENWEATHER_API_KEY}}" }
+        ]
+      },
+      "description": "Set OPENWEATHER_API_KEY privately in your Postman environment. Do not export or screenshot its value. This request retrieves current conditions, not today's forecast."
+    },
+    "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+      "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+      "pm.test('Miami and required weather fields', () => { const data = pm.response.json(); pm.expect(data.name).to.eql('Miami'); pm.expect(data.main.temp).to.be.a('number'); pm.expect(data.weather[0].description).to.be.a('string').and.not.empty; });"
+    ] } }]
+  }]
+}
