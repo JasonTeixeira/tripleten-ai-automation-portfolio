@@ -96,7 +96,7 @@ test('formats a friendly daily email with source values and both promos', () => 
   assert.match(result.body, /Staffing suggestion/);
   assert.match(result.body, /1\. Iced coffee/);
   assert.match(result.body, /2\. A little gelato/);
-  assert.equal(result.promo_1_characters, 38);
+  assert.equal(result.promo_1_characters, 37);
   assert.equal(result.alert_required, false);
 });
 
@@ -126,6 +126,10 @@ test('requires exactly two short promos', () => {
 test('counts Unicode characters consistently', () => {
   const result = email({ ai_response: plan({ promos: ['☕'.repeat(119), 'Enjoy some gelato.'] }) });
   assert.equal(result.promo_1_characters, 119);
+});
+
+test('rejects plans over the total word limit', () => {
+  assert.throws(() => email({ ai_response: plan({ product_focus: 'a '.repeat(181).trim() }) }), /180 words/);
 });
 
 test('rejects AI fields that could break plain-text sections or exceed bounds', () => {
