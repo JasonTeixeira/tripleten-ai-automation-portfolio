@@ -9,21 +9,20 @@ This project prepares a morning email with product priorities, a staffing sugges
 and two short customer promos based on Miami weather. An optional second email flags
 heat, rain, or storms under the assignment's alert rule.
 
-**Status:** the local validation tests pass, and the live Zap's Schedule and
-OpenWeather Webhooks steps passed their editor tests. Direct OpenWeather and
-Gemini API tests also succeeded, with a validated plan saved in `evidence/`.
-The Gemini connection inside Zapier, the remaining workflow steps, inbox delivery,
-scheduled execution, and final slide deck are still pending. No Postman test has
-been recorded. The files under `templates/` remain simulated examples.
+**Status:** live OpenWeather, Gemini, validation, and Gmail editor tests passed.
+The daily plan was received in the test inbox on October 26, 2026. The alert filter
+passed both normal-weather and simulated severe-weather tests; the labeled alert
+send also succeeded. Recurring activation, scheduled-run observation, final slides,
+and a Postman run remain pending. Publication is blocked by the current Free plan;
+Zapier requires Pro for this multistep workflow. See `evidence/LIVE_PROGRESS.md`.
 
 ## Workflow
 
 ```mermaid
 flowchart TD
     A[Schedule: daily at 7 AM Miami time] --> B[OpenWeather: current conditions]
-    B --> C[Code: validate weather and timestamp]
-    C --> D[Gemini: product focus, staffing, two promos]
-    D --> E[Code: validate JSON and format plain text]
+    B --> D[Gemini: product focus, staffing, two promos]
+    D --> E[Code: validate weather, timestamp, JSON; format email]
     E --> F[Gmail: regular daily plan]
     F --> G{Temperature above 91 F, storm, or rain?}
     G -->|Yes| H[Gmail: operational weather alert]
@@ -31,7 +30,7 @@ flowchart TD
 ```
 
 The required service sequence remains Schedule, OpenWeather, Gemini, Gmail.
-Two Code by Zapier steps add checks before AI and email. They stop a run when the
+One Code by Zapier step validates weather and AI output before email. It stops a run when the
 weather mapping is invalid, an observation is over three hours old, or the AI
 response lacks usable fields. The manager still controls stock and staffing.
 

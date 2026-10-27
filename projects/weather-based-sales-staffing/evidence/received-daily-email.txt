@@ -1,0 +1,76 @@
+Verified received Gmail message from the live Zapier test.
+
+- main:
+  - button "Convert to PDF":
+    - generic: Convert to PDF
+  - button "Print all":
+  - tooltip: Print all
+  - button "In new window":
+  - tooltip: In new window
+  - heading "Daily Plan – Bayside Brews & Scoops (Miami, FL)" [active] [level=2]:
+    - text: Daily Plan –
+    - generic: Bayside Brews
+    - text: "& Scoops (Miami, FL)"
+  - button "Search for all messages with label Inbox": Inbox
+  - tooltip: Search for all messages with label Inbox
+  - button "Remove label Inbox from this conversation": ×
+  - tooltip: Remove label Inbox from this conversation
+  - list:
+    - table:
+      - rowgroup:
+        - row "Bayside Brews & Scoops sage@sageideas.org 7:40 PM (0 minutes ago) Not starred Add reaction Reply More message options":
+          - cell "Bayside Brews & Scoops sage@sageideas.org":
+            - table:
+              - rowgroup:
+                - row "Bayside Brews & Scoops sage@sageideas.org":
+                  - cell "Bayside Brews & Scoops sage@sageideas.org":
+                    - heading "Bayside Brews & Scoops sage@sageideas.org" [level=3]:
+                      - gridcell "Bayside Brews & Scoops sage@sageideas.org":
+                        - generic: Bayside Brews & Scoops
+                        - generic: <sage@sageideas.org>
+                    - heading [level=3]
+          - cell "7:40 PM (0 minutes ago) Not starred":
+            - gridcell "7:40 PM (0 minutes ago)"
+            - checkbox "Not starred"
+          - cell
+          - cell "Add reaction Reply More message options":
+            - button "Add reaction":
+            - tooltip: Add reaction
+            - button "Reply":
+            - tooltip: Reply
+            - generic "More message options":
+              - button "More message options":
+              - tooltip: More
+        - row "to me Show details":
+          - cell "to me Show details":
+            - table:
+              - rowgroup:
+                - row "to me Show details":
+                  - cell "to me Show details":
+                    - generic: to me
+                    - button "Show details"
+    - text: Good morning, Emily
+    - img "👋"
+    - text: Here's today's starting point for
+    - generic: Bayside Brews
+    - text: "& Scoops."
+    - text: "Miami, FL, current conditions: 79.75 °F — broken clouds. Humidity: 72%. Wind: 18.41 mph. Observed: Oct 26, 2026, 6:16:54 PM EDT."
+    - text: Product focus
+    - text: Given the warm 79°F and high humidity, cold drinks and gelato will likely be very popular. The broken clouds and breezy conditions make refreshing options appealing. Have pastries ready, and hot drinks available for those who prefer them.
+    - text: Staffing suggestion
+    - text: With the pleasant, breezy weather, foot traffic might be good. Consider having one extra person on standby if demand picks up quickly, ensuring smooth service.
+    - text: Customer promos
+    - text: 1. Beat the 79°F warmth and humidity with our refreshing cold drinks and creamy gelato!
+    - text: 2. Enjoy a breezy morning with your favorite pastry and coffee, or cool down with a scoop of gelato!
+    - text: Use this as a starting point and adjust for today's stock and team coverage.
+    - text: Your Bayside morning brief
+    - text: Scheduled for 7:00 AM Miami time • Powered by OpenWeather and Gemini
+  - link "Reply"
+  - link "Forward"
+  - button "Add reaction":
+  - tooltip: Add reaction
+  - link "Share in chat New":
+    - text: Share in chat
+    - generic: New
+- button "Show side panel":
+- iframe [id="I__HC_94253229"] [name="I__HC_94253229"]

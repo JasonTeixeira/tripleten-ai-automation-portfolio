@@ -48,7 +48,7 @@ Show the diagram from README.md or the actual Zap canvas. Include the weather
 validation and AI-output validation steps. Put the optional weather filter after
 the daily email.
 
-Speaker notes: The core apps follow the assignment. The two Code steps help
+Speaker notes: The core apps follow the assignment. The one combined validation and formatting Code step help
 prevent missing or malformed data from reaching Emily. The filter adds a second
 email only when the weather meets our alert rule.
 

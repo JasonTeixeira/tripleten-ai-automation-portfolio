@@ -1,29 +1,24 @@
 # Evidence record
 
-## Local implementation proof
+See [LIVE_PROGRESS.md](LIVE_PROGRESS.md) for inputs, timestamps, test limits, and
+remaining work. Screenshots are actual service UI, not mockups.
 
-The Node test suite exercises validation and formatting, including the generated
-scripts intended for Code by Zapier. It does not use live external accounts.
-Run `npm run test:coverage` for the latest results. See `LOCAL_VERIFICATION.md`
-for the recorded local gate results.
+| Evidence | Result |
+|---|---|
+| Direct OpenWeather/Gemini calls | HTTP200 with real Miami weather and validated AI output |
+| Schedule/Webhooks/Gemini/Code editor tests | Passed |
+| Received daily email | Verified, 06-received-daily-email.jpg |
+| Normal filter | Correctly stopped; 07-alert-filter-false.jpg |
+| Simulated severe-weather filter | Correctly continued; 08-alert-filter-true-simulated.jpg |
+| Simulated alert email | Send succeeded, INBOX returned, received message visible in Gmail search; 09-alert-send-success-simulated.jpg |
+| Postman | Not run; importable collection supplied |
+| Recurring schedule | Not activated or observed |
+| Presentation | Incomplete |
 
-## Live proof still required
+Local tests cover91°F/91.1°F boundaries, rain, storms, invalid mappings, stale
+observations, malformed AI, and promo lengths. They do not prove cloud delivery.
+Both generated scripts are exercised locally; the installed Zap uses only the
+combined plan validator after Gemini. The weather-only script is optional.
 
-See [LIVE_PROGRESS.md](LIVE_PROGRESS.md) for the current external test record.
-
-| Evidence | Status | Suggested screenshot |
-|---|---|---|
-| Postman success with Miami response and imperial query | Not run | 01-postman-redacted.png |
-| Full Zap canvas with field mappings | Schedule and Webhooks editor tests passed; remaining steps incomplete | 02-zap-workflow.png |
-| Gemini prompt and actual output | Direct API generation passed; Zapier step pending | 03-gemini-prompt-output.png |
-| Daily email received in confirmed test inbox | Not sent | 04-received-daily-email.png |
-| Clear sky at 91°F, regular email and no extra alert | Not run live | 05-boundary-no-alert.png |
-| Synthetic 91.1°F, regular email and heat alert | Not run live | 06-heat-alert.png |
-| Synthetic rain/storm alert received | Not run live | 07-storm-alert.png |
-| Scheduled run near 7 AM Miami time | Not activated | 08-scheduled-run.png |
-
-For each test, record time, input source, observed result, and screenshot filename.
-Label edited/synthetic weather explicitly. Redact API keys, connection details,
-and unrelated inbox content before putting evidence in a public repository.
-Saved screenshots show only the actually completed portions. No screenshot proves
-delivery until a received email has been captured.
+Public evidence excludes credentials and unrelated inbox content. The recipient
+shown in project screenshots is the owner's confirmed business test inbox.

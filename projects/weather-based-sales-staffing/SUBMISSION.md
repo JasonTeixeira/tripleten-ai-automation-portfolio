@@ -11,7 +11,7 @@
 **Project link:** https://github.com/JasonTeixeira/tripleten-ai-automation-portfolio/tree/codex/weather-based-sales-staffing/projects/weather-based-sales-staffing
 
 This branch contains the reviewed build kit. The main branch does not yet include
-this project. The live workflow and final presentation remain pending.
+this project. The live editor tests and daily inbox receipt passed. Activation and the final presentation remain pending.
 
 **Presentation template:** https://docs.google.com/presentation/d/1oSvomOtgMT6Z-msUzkPApBAOdD0wG976CkDw2cGDn7U/edit
 
@@ -20,10 +20,10 @@ but remains incomplete. It is not yet a submission-ready presentation.
 
 ## Before submitting
 
-- [ ] Confirm the recipient and connect Zapier, OpenWeather, Gemini, and Gmail.
-- [ ] Build the Zap using BUILD_KIT.md and test with real OpenWeather data.
-- [ ] Receive and inspect the test email.
-- [ ] Test optional alert behavior, clearly labeling synthetic weather.
+- [x] Confirm the recipient and connect Zapier, OpenWeather, Gemini, and Gmail.
+- [x] Build the seven-step Zap and test each step with real weather (alert positive case uses labeled synthetic conditions).
+- [x] Receive and inspect the daily test email.
+- [x] Test optional alert behavior, clearly labeling synthetic weather.
 - [ ] Capture redacted screenshots and complete the evidence record.
 - [ ] Update the presentation with actual findings and screenshots.
 - [ ] Delete instructions and unused sample slides.
@@ -37,13 +37,13 @@ project as fully working based on local helper tests alone.
 
 ## Live setup checkpoint — October 26, 2026
 
-- GitHub authentication verified and the reviewed project branch published.
-- Local build, syntax checks, 47 tests, and dependency audit passed again before publishing.
-- Zapier sign-in and Gmail connection are now verified. The connected business
-  inbox will be used for tests. No emails sent and no recurring Zap activated.
-- Schedule and OpenWeather editor tests passed in the saved live Zap draft.
-- Direct OpenWeather and Gemini API tests passed. The Gemini Zapier connection
-  is awaiting completion in its open connection window.
-- No direct Google Drive or Gmail connector is confirmed connected in this session.
-- Actual weather and AI output are saved under `evidence/`, with direct API tests
-  distinguished from Zapier tests. See `evidence/LIVE_PROGRESS.md`.
+49 local tests pass. Direct API checks and all seven editor step tests succeeded.
+The daily email was received at 7:40 PM EDT, the labeled synthetic alert at 7:58 PM.
+Live mappings and production alert email fields were restored after simulation.
+See `evidence/LIVE_PROGRESS.md` for precise proof and outstanding work. Chrome
+control stalled during final editing. The Zap is still a draft and the Google
+deck still contains unfinished slides. No scheduled execution or Postman run is
+claimed. Do not submit as complete yet.
+
+**Confirmed activation blocker:** Zapier Free allows two-step Zaps. The publish
+flow requires Pro for this seven-step project. No subscription was started.

@@ -38,76 +38,57 @@ appid: enter your API key privately
 If a new key returns 401, check the key and activation status. Do not continue
 with sample weather pretending it came from a successful API call.
 
-## 3. Code by Zapier: validate the weather
+## 3. Google AI Studio (Gemini): Send Prompt
 
-Run Javascript. Paste `zapier/01-validate-weather.js.txt` in full. Define these
-Input Data keys and select actual Webhook output tokens:
+Paste `prompt.txt`, replacing each placeholder with its corresponding Webhooks
+output token: temperature = main.temp, description = weather[0].description,
+humidity = main.humidity, wind = wind.speed, observed_at = dt (Unix seconds).
+Use gemini-2.5-flash, temperature 0.2 and maximum output tokens 2048.
+These values were used in the successful live editor test.
 
-| Input Data key | OpenWeather JSON field |
-|---|---|
-| temperature | main.temp |
-| description | weather[0].description |
-| humidity | main.humidity |
-| wind | wind.speed |
-| observed_at | dt (Unix seconds, not milliseconds) |
+Inspect the response for `product_focus`, `staffing_suggestion` and two `promos`.
+The validator accepts raw JSON or one complete outer JSON code fence. It rejects
+surrounding commentary. The generated weather-only helper `01-validate-weather.js.txt`
+is an optional reusable helper and is not installed in this seven-step Zap.
 
-The helper expects imperial units: °F and mph. It cannot infer unit correctness
-from a plausible numeric value, so verify `units=imperial` in the request.
-It rejects observations older than three hours or over ten minutes in the future.
-For optional humidity/wind, a blank mapping becomes 'unavailable'.
-
-Check output fields `weather_summary`, `local_observed_at`, `alert_required`, and
-`alert_reasons`. A rejected mapping should appear as an errored run requiring
-manual review, not a generated daily plan.
-
-## 4. Google AI Studio (Gemini): Send Prompt
-
-Paste `prompt.txt`. Replace `{{weather_summary}}` with the mapped output token
-from step 3. Do not leave the braces as literal text. Choose an available text
-model in your connected account. If a temperature field is available, start at
-0.2. Enable JSON output if the selected action supports it, while retaining the
-prompt's explicit JSON instructions.
-
-Test and inspect the actual response. It should be raw JSON with
-`product_focus`, `staffing_suggestion`, and a `promos` array of two strings.
-The next step deliberately rejects code fences and explanatory text.
-
-## 5. Code by Zapier: validate the plan and format email
+## 4. Code by Zapier: validate the plan and format email
 
 Run Javascript. Paste `zapier/02-validate-plan-and-format-email.js.txt` in full.
-Map the same five weather fields directly from the Webhook, plus:
+Map temperature (main.temp), description (weather[0].description), humidity
+(main.humidity), wind (wind.speed), and observed_at (dt) from the Webhook, plus:
 
 | Input Data key | Value |
 |---|---|
 | ai_response | Gemini's generated text response, not a whole response object |
 
-The helper validates before creating `subject`, `body`, `alert_subject`, and
+The helper requires imperial units, rejects observations over three hours old or
+over ten minutes in the future, and validates AI output before creating `subject`, `body`, `alert_subject`, and
 `alert_body`. It also outputs a Boolean `alert_required` and both promo character
 counts. Do not map AI text directly into Gmail around this check.
 
-## 6. Gmail: regular plan
+## 5. Gmail: regular plan
 
 - Event: Send Email.
 - To: your confirmed test inbox, entered directly.
 - From name: Bayside Brews & Scoops.
-- Subject: step 5 `subject`.
+- Subject: step 4 `subject`.
 - Body type: Plain.
-- Body: step 5 `body`.
+- Body: step 4 `body`.
 
 Run this step only after confirming the recipient. Inspect the received email,
 including weather values, headings, both promos, and observation time. A successful
 Gmail action alone does not prove inbox receipt.
 
-## 7. Filter by Zapier: optional alert
+## 6. Filter by Zapier: optional alert
 
-Continue only if step 5 `alert_required` **(Boolean) Is true**. This helper computes
+Continue only if step 4 `alert_required` **(Boolean) Is true**. This helper computes
 the rubric's OR rule: temperature >91, description contains storm, or description
 contains rain. Do not filter on AI-generated text or compare the Boolean to a
 numeric temperature. Zapier's displayed field types should be confirmed in a test.
 
-## 8. Gmail: alert
+## 7. Gmail: alert
 
-Same confirmed test inbox. Plain body. Map step 5 `alert_subject` and `alert_body`.
+Same confirmed test inbox. Plain body. Map step 4 `alert_subject` and `alert_body`.
 The daily email precedes this filter so normal days still get their plan.
 
 ## Testing and activation
