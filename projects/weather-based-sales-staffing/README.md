@@ -12,7 +12,9 @@ heat, rain, or storms under the assignment's alert rule.
 **Status:** live OpenWeather, Gemini, validation, and Gmail editor tests passed.
 The daily plan was received in the test inbox on October 26, 2026. The alert filter
 passed both normal-weather and simulated severe-weather tests; the labeled alert
-send also succeeded. Recurring activation, scheduled-run observation, final slides,
+send also succeeded. The [completed presentation](presentation/README.md) is
+available as PDF and editable PowerPoint, with screenshots and no template
+instructions or unused slides. Recurring activation, scheduled-run observation
 and a Postman run remain pending. Publication is blocked by the current Free plan;
 Zapier requires Pro for this multistep workflow. See `evidence/LIVE_PROGRESS.md`.
 

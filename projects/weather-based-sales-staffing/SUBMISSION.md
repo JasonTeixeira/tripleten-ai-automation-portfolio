@@ -11,12 +11,18 @@
 **Project link:** https://github.com/JasonTeixeira/tripleten-ai-automation-portfolio/tree/codex/weather-based-sales-staffing/projects/weather-based-sales-staffing
 
 This branch contains the reviewed build kit. The main branch does not yet include
-this project. The live editor tests and daily inbox receipt passed. Activation and the final presentation remain pending.
+this project. The live editor tests and daily inbox receipt passed. The completed
+presentation is linked below. Recurring activation remains blocked by the Free plan.
 
 **Presentation template:** https://docs.google.com/presentation/d/1oSvomOtgMT6Z-msUzkPApBAOdD0wG976CkDw2cGDn7U/edit
 
-**Presentation draft:** The linked Google deck is renamed and partially edited,
-but remains incomplete. It is not yet a submission-ready presentation.
+**Completed presentation:**
+
+- [PDF](presentation/Weather-Automation-Jason-Teixeira-Final.pdf)
+- [Editable PowerPoint](presentation/Weather-Automation-Jason-Teixeira-Final.pptx)
+
+The original Google deck remains an unfinished draft because the editing
+connection failed. Use the completed PDF or PowerPoint instead of that draft.
 
 ## Before submitting
 
@@ -25,9 +31,9 @@ but remains incomplete. It is not yet a submission-ready presentation.
 - [x] Receive and inspect the daily test email.
 - [x] Test optional alert behavior, clearly labeling synthetic weather.
 - [ ] Capture redacted screenshots and complete the evidence record.
-- [ ] Update the presentation with actual findings and screenshots.
-- [ ] Delete instructions and unused sample slides.
-- [ ] Add the final deck URL and/or exported deck to this project folder.
+- [x] Complete the exported presentation with actual findings and screenshots.
+- [x] Exclude instructions and unused sample slides from the exported presentation.
+- [x] Add the final exported presentation to this project folder.
 - [x] Review the local diff, then publish the approved branch to the existing repository.
 - [x] Verify the branch includes this folder through the GitHub repository API.
 - [ ] Confirm the final submission link opens for the reviewer after all live evidence is added.
@@ -42,8 +48,9 @@ The daily email was received at 7:40 PM EDT, the labeled synthetic alert at 7:58
 Live mappings and production alert email fields were restored after simulation.
 See `evidence/LIVE_PROGRESS.md` for precise proof and outstanding work. Chrome
 control stalled during final editing. The Zap is still a draft and the Google
-deck still contains unfinished slides. No scheduled execution or Postman run is
-claimed. Do not submit as complete yet.
+deck still contains unfinished slides, but the exported 17-slide presentation
+is complete and visually reviewed. No scheduled execution or Postman run is
+claimed. The entire automation is not claimed complete while publication is blocked.
 
 **Confirmed activation blocker:** Zapier Free allows two-step Zaps. The publish
 flow requires Pro for this seven-step project. No subscription was started.

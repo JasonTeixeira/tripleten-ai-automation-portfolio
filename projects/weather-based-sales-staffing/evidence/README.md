@@ -13,7 +13,8 @@ remaining work. Screenshots are actual service UI, not mockups.
 | Simulated alert email | Send succeeded, INBOX returned, received message visible in Gmail search; 09-alert-send-success-simulated.jpg |
 | Postman | Not run; importable collection supplied |
 | Recurring schedule | Not activated or observed |
-| Presentation | Incomplete |
+| Presentation exports | Complete; 17-slide PDF and editable PowerPoint in ../presentation/ |
+| Original Google presentation | Unfinished draft after editing connection failed; use completed exports |
 
 Local tests cover91°F/91.1°F boundaries, rain, storms, invalid mappings, stale
 observations, malformed AI, and promo lengths. They do not prove cloud delivery.

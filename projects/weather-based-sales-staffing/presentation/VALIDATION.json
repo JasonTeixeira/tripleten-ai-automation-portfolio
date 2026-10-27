@@ -1,0 +1,16 @@
+{
+  "file": "Weather-Automation-Jason-Teixeira-Final.pptx",
+  "sha256": "f87fa729c2208af4f210329c8e8a88126abe1b33b760720aab93e2b3398a438d",
+  "slides": 17,
+  "packageIntegrity": "pass",
+  "layoutFindings": 0,
+  "layoutWarnings": 0,
+  "artifactToolImportPassed": true,
+  "visualReview": "All 17 slides reviewed; crowded card and diagram direction corrected before finalization",
+  "pdf": "17 pages; checked for template placeholders and instructions",
+  "limitations": [
+    "Not verified in native PowerPoint or Google Slides",
+    "Original Google Slides draft remains unfinished",
+    "Scheduled Zap activation remains blocked by Free plan"
+  ]
+}

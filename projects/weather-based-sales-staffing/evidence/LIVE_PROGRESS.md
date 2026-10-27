@@ -19,7 +19,8 @@ No scheduled 7 AM run has been observed.
 | Gmail7 positive | Labeled simulated alert sent at7:58PM EDT; Gmail returned INBOX/SENT; search showed received message | 09-alert-send-success-simulated.jpg |
 | Restoration | Code4 temperature and description restored to Webhooks tokens; retest returned false; Gmail7 subject/body restored to Code4 tokens only | Observed editor fields and cloud retest |
 | Publication | Blocked by Free plan; Pro required for this multistep workflow | 10-publish-plan-blocker.jpg |
-| Presentation | Renamed, author added, Problem edited; other template placeholders remain | presentation-cover-draft.jpg |
+| Presentation exports | Completed 17-slide PDF and editable PowerPoint, screenshots included, template instructions/unused slides excluded | ../presentation/README.md |
+| Original Google deck | Renamed and partially edited; still an unfinished draft after editing connection failures | presentation-cover-draft.jpg |
 
 ## What these tests establish
 
@@ -43,7 +44,7 @@ examples, not evidence of delivery. No secrets are saved in this evidence set.
 
 ## Still outstanding
 
-- Complete and visually review the presentation; remove instructions/sample slides.
+- Presentation exports are complete; the original Google draft is not the final deliverable.
 - Capture an opened alert email screenshot (inbox search receipt already observed).
 - Complete the plan decision, run a final normal workflow check, and publish/activate it.
 - Publish dialog was given the name Bayside Brews & Scoops — Daily Weather Plan.
