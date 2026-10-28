@@ -21,10 +21,12 @@ successfully by Artifact Tool. The PDF was converted with the bundled
 LibreOffice renderer, checked as 17 pages, scanned for template placeholders,
 and visually compared against the slide renders. See VALIDATION.json.
 
-Google Slides editing repeatedly failed and the browser connection disconnected.
-The original Google deck remains an unfinished draft; these completed files are
-the presentation deliverables. Native PowerPoint and Google Slides viewer
-behavior has not been verified.
+[Final native Google Slides](https://docs.google.com/presentation/d/1q5kAzQLxhGkq9h6dxb8L6sfrCruA_SKik-cX6Zl3fs8/edit)
+is complete and shared as Anyone with the link → Viewer. All 17 pages of its
+Google Slides PDF export were visually reviewed after conversion. Screenshots,
+text, diagram and prompt remained intact, without template filler. Sharing proof
+is in `../evidence/10-google-slides-viewer-access.png`. The original template
+remains a separate unfinished draft. Native PowerPoint has not been verified.
 
 The presentation is complete. This does not activate the Zap: publication
 remains blocked by Zapier's Free-plan limit, and a scheduled 7 AM run has not

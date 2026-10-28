@@ -44,7 +44,7 @@ examples, not evidence of delivery. No secrets are saved in this evidence set.
 
 ## Still outstanding
 
-- Presentation exports are complete; the original Google draft is not the final deliverable.
+- Presentation exports and final native Google Slides are complete; the original template is not the final deliverable.
 - Capture an opened alert email screenshot (inbox search receipt already observed).
 - Complete the plan decision, run a final normal workflow check, and publish/activate it.
 - Publish dialog was given the name Bayside Brews & Scoops — Daily Weather Plan.
@@ -62,3 +62,14 @@ and preserved for continuation.
 
 - Zap draft: https://zapier.com/editor/384798430/draft
 - Presentation draft: https://docs.google.com/presentation/d/1oSvomOtgMT6Z-msUzkPApBAOdD0wG976CkDw2cGDn7U/edit
+
+## Native Google Slides completion — October 28, 2026
+
+The owner uploaded the completed PowerPoint. It was converted using File → Save
+as Google Slides and renamed Weather Automation – Jason Teixeira (Final).
+All 17 pages of the Google Slides PDF export were visually reviewed. Screenshots,
+text, diagram and prompt remained intact, with no template filler.
+Drive confirmed Access updated with Anyone with the link and Viewer selected.
+Proof: `10-google-slides-viewer-access.png`. No paid plan was started.
+
+Final deck: https://docs.google.com/presentation/d/1q5kAzQLxhGkq9h6dxb8L6sfrCruA_SKik-cX6Zl3fs8/edit

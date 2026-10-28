@@ -31,10 +31,11 @@ the completed exports. Instructions and unused sample layouts are excluded.
 The full prompt is included across three readable appendix slides; its input
 fields are resolved to the real editor test values rather than left as braces.
 
-The Google Slides editing connection repeatedly failed and later disconnected.
-The original Google deck remains an unfinished draft. These completed PDF and
-PowerPoint files are the final presentation deliverables; no Google Slides
-import or native PowerPoint viewer test is claimed.
+[Final native Google Slides](https://docs.google.com/presentation/d/1q5kAzQLxhGkq9h6dxb8L6sfrCruA_SKik-cX6Zl3fs8/edit)
+is complete and shared as Anyone with the link → Viewer. All 17 pages of its
+Google Slides PDF export were visually reviewed after conversion. Text,
+screenshots, diagram and prompt remained intact. The original template remains
+a separate unfinished draft. Native PowerPoint viewer testing is not claimed.
 
 The presentation honestly distinguishes individual editor tests from recurring
 execution. Daily inbox receipt is proven. The alert positive test uses clearly

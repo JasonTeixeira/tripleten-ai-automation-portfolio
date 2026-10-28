@@ -14,7 +14,8 @@ remaining work. Screenshots are actual service UI, not mockups.
 | Postman | Not run; importable collection supplied |
 | Recurring schedule | Not activated or observed |
 | Presentation exports | Complete; 17-slide PDF and editable PowerPoint in ../presentation/ |
-| Original Google presentation | Unfinished draft after editing connection failed; use completed exports |
+| Final native Google Slides | 17 slides converted and reviewed; Anyone with link → Viewer; 10-google-slides-viewer-access.png |
+| Original Google template | Separate unfinished draft; use the final link in ../SUBMISSION.md |
 
 Local tests cover91°F/91.1°F boundaries, rain, storms, invalid mappings, stale
 observations, malformed AI, and promo lengths. They do not prove cloud delivery.

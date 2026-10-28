@@ -8,9 +8,17 @@
   "artifactToolImportPassed": true,
   "visualReview": "All 17 slides reviewed; crowded card and diagram direction corrected before finalization",
   "pdf": "17 pages; checked for template placeholders and instructions",
+  "googleSlides": {
+    "url": "https://docs.google.com/presentation/d/1q5kAzQLxhGkq9h6dxb8L6sfrCruA_SKik-cX6Zl3fs8/edit",
+    "nativeConversion": true,
+    "exportPages": 17,
+    "visualReview": "All 17 native-export pages reviewed; text, screenshots, diagram and prompt intact",
+    "sharing": "Anyone with the link — Viewer; Access updated observed",
+    "sharingEvidence": "../evidence/10-google-slides-viewer-access.png"
+  },
   "limitations": [
-    "Not verified in native PowerPoint or Google Slides",
-    "Original Google Slides draft remains unfinished",
+    "Not verified in native PowerPoint",
+    "Original Google template remains a separate unfinished draft",
     "Scheduled Zap activation remains blocked by Free plan"
   ]
 }
