@@ -1,0 +1,392 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:isactr="http://schemas.uipath.com/workflow/integration-service-activities/isactr"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:p="http://schemas.uipath.com/workflow/activities/intelligentocr"
+ xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib"
+ xmlns:uga="clr-namespace:UiPath.GSuite.Activities;assembly=UiPath.GSuite.Activities"
+ xmlns:ugade="clr-namespace:UiPath.GSuite.Activities.Drive.Enums;assembly=UiPath.GSuite.Activities"
+ xmlns:ugadf="clr-namespace:UiPath.GSuite.Activities.Drive.Filters;assembly=UiPath.GSuite.Activities"
+ xmlns:ugae="clr-namespace:UiPath.GSuite.Activities.Enums;assembly=UiPath.GSuite.Activities"
+ xmlns:ugam="clr-namespace:UiPath.GSuite.Activities.Models;assembly=UiPath.GSuite.Activities"
+ xmlns:ugase="clr-namespace:UiPath.GSuite.Activities.Sheets.Enums;assembly=UiPath.GSuite.Activities"
+ xmlns:ugdm="clr-namespace:UiPath.GSuite.Drive.Models;assembly=UiPath.GSuite"
+ xmlns:ugsc="clr-namespace:UiPath.GSuite.Sheets.Contracts;assembly=UiPath.GSuite"
+ xmlns:ugsmc="clr-namespace:UiPath.GSuite.Sheets.Models.Columns;assembly=UiPath.GSuite"
+ xmlns:ui="http://schemas.uipath.com/workflow/activities"
+ xmlns:uiascb="clr-namespace:UiPath.IntegrationService.Activities.SWEntities.CD52A361711_v2_sub_generateChatCompletion_Create.Bundle;assembly=CD52A361711_v2_sub_g.oT2cA4K7eEM1zZv6c2zDpeV4"
+ xmlns:uisad="clr-namespace:UiPath.IntelligentOCR.StudioWeb.Activities.DataExtraction;assembly=UiPath.IntelligentOCR.StudioWeb.Activities"
+ xmlns:uisaseib="clr-namespace:UiPath.IntelligentOCR.StudioWeb.Activities.SWEntities.ExtendedExtractionResultsForDocumentData.Invoices.Bundle;assembly=ExtendedExtractionRe.NcKV81toyTO1ugBA8105wvb3"
+ xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.GSuite.Activities"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="52">
+      <x:String>UiPath.ConnectionClient.Contracts</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>UiPath.GSuite.Activities.Drive.Enums</x:String>
+      <x:String>System</x:String>
+      <x:String>UiPath.Shared.Activities.Utils</x:String>
+      <x:String>UiPath.GSuite.Drive.Models</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.GSuite.Activities.Models</x:String>
+      <x:String>UiPath.GSuite.Activities.Sheets.Enums</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>UiPath.GSuite.Sheets.Contracts</x:String>
+      <x:String>UiPath.GSuite.Activities</x:String>
+      <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.DocumentUnderstanding.Common.SDK.Discovery.Model</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Models.FilterBuilder</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Models</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Activities</x:String>
+      <x:String>UiPath.Platform.Activities</x:String>
+      <x:String>UiPath.IntelligentOCR.StudioWeb.Activities.DataExtraction</x:String>
+      <x:String>UiPath.IntelligentOCR.StudioWeb.Activities.DocumentClassification</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.DataExtraction</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Results</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Dom</x:String>
+      <x:String>UiPath.IntelligentOCR.StudioWeb.Activities</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts</x:String>
+      <x:String>UiPath.GSuite.Activities.Enums</x:String>
+      <x:String>UiPath.GSuite.Activities.Drive.Filters</x:String>
+      <x:String>UiPath.GSuite.Activities.Filters</x:String>
+      <x:String>UiPath.GSuite.Drive.Enums</x:String>
+      <x:String>UiPath.Shared.Activities.Business</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>UiPath.IntegrationService.Activities.SWEntities.CD52A361711_v2_sub_generateChatCompletion_Create.Bundle</x:String>
+      <x:String>UiPath.IntelligentOCR.StudioWeb.Activities.SWEntities.ExtendedExtractionResultsForDocumentData.Invoices.Bundle</x:String>
+      <x:String>System.ComponentModel</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="35">
+      <AssemblyReference>ExtendedExtractionRe.NcKV81toyTO1ugBA8105wvb3</AssemblyReference>
+      <AssemblyReference>CD52A361711_v2_sub_g.oT2cA4K7eEM1zZv6c2zDpeV4</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Net.Primitives</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Runtime</AssemblyReference>
+      <AssemblyReference>netstandard</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR.StudioWeb.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR</AssemblyReference>
+      <AssemblyReference>UiPath.DocumentProcessing.Contracts</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.ReaderWriter</AssemblyReference>
+      <AssemblyReference>System.Xml.XmlSerializer</AssemblyReference>
+      <AssemblyReference>UiPath.IntegrationService.Activities.Runtime</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.DocumentUnderstanding.Common.SDK</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>ConnectionClient</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="356,732" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="uisad:IDocumentData(uisaseib:Invoices)" Name="documentData">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="SourceIdRef">ExtractDocumentDataWithDocumentData`1_1</x:String>
+            <x:String x:Key="SourcePropertyName">ExtractionResults</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="topGeneratedText">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="SourceIdRef">ConnectorActivity_1</x:String>
+            <x:String x:Key="SourcePropertyName">out_text</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </Variable>
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ManualTrigger Result="{x:Null}" DisplayName="Manual Trigger" sap2010:WorkflowViewState.IdRef="ManualTrigger_1" />
+    <uga:ForEachFileFolderConnections ConnectionAccountName="{x:Null}" ExistingLocation="{x:Null}" FolderIdBackup="{x:Null}" Length="{x:Null}" ManualEntryLocation="{x:Null}" QueryFilter="{x:Null}" AllLabels="W10=" AuthScopesInvalid="False" BrowserLocation="https://drive.google.com/drive/folders/16fhX_YrWZJb60o3myeo7fmAWlRtWdDfj" ConnectionId="0b68601b-7631-4c52-986c-980c3843188d" CurrentItemVariableName="CurrentItem" DisplayName="For Each File or Folder" FilterSelectionMode="ConditionBuilder" sap2010:WorkflowViewState.IdRef="ForEachFileFolderConnections_1" LocationFriendlyName="TripleTen - Invoice Reporting" LocationInputMode="Browse" MaxResults="200" StarredOnly="False" UseConnectionService="True" WhatToReturn="[UiPath.GSuite.Activities.Drive.Enums.LocationType.Files]">
+      <uga:ForEachFileFolderConnections.Body>
+        <ActivityAction x:TypeArguments="ugdm:GDriveRemoteItem, x:Int32">
+          <ActivityAction.Argument1>
+            <DelegateInArgument x:TypeArguments="ugdm:GDriveRemoteItem" Name="CurrentItem" />
+          </ActivityAction.Argument1>
+          <ActivityAction.Argument2>
+            <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentItemIndex" />
+          </ActivityAction.Argument2>
+          <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <p:ExtractDocumentDataWithDocumentData x:TypeArguments="uisaseib:Invoices" DocumentBounds="{x:Null}" DocumentObjectModel="{x:Null}" DocumentPath="{x:Null}" DocumentText="{x:Null}" ExtractorDocumentType="{x:Null}" ExtractorResult="{x:Null}" PersistenceId="{x:Null}" PredictionId="{x:Null}" RuntimeAssetPath="{x:Null}" RuntimeTenantUrl="{x:Null}" sap:WorkflowViewStateService.ViewState="{x:Null}" ActivityMajorVersion="2" ApplyAutoValidation="False" DisplayName="Extract Document Data" DocType="invoices" ExtractionResults="[documentData]" ExtractorName="Invoices" FileInput="[CurrentItem]" GenerateData="True" sap2010:WorkflowViewState.IdRef="ExtractDocumentDataWithDocumentData`1_1" ModernDocumentTypeId="invoices" ModernDocumentTypeName="Invoices" ProjectId="00000000-0000-0000-0000-000000000000" ProjectName="Predefined" ProjectTag="Production" ProjectVersionName="Production" ProjectVersionNumber="0" TimeoutInSeconds="3600">
+              <p:ExtractDocumentDataWithDocumentData.AutoValidationConfidenceThreshold>
+                <InArgument x:TypeArguments="s:Nullable(x:Int32)">
+                  <Literal x:TypeArguments="s:Nullable(x:Int32)" Value="0" />
+                </InArgument>
+              </p:ExtractDocumentDataWithDocumentData.AutoValidationConfidenceThreshold>
+              <p:ExtractDocumentDataWithDocumentData.GptPromptWithVariables>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </p:ExtractDocumentDataWithDocumentData.GptPromptWithVariables>
+            </p:ExtractDocumentDataWithDocumentData>
+            <If Condition="[documentData.Data.InvoiceNumber.Confidence &lt; 0.7]" DisplayName="If" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Then>
+                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <ui:LogMessage DisplayName="Log Message" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Warn" Message="[&quot;Invoice requires manual check: low confidence on the invoice number.&quot;]" />
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_4" />
+              </If.Else>
+            </If>
+            <isactr:ConnectorActivity Configuration="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" ConnectionId="a9bb63a1-f393-43b4-a446-49d52a361711" DisplayName="Content Generation" sap2010:WorkflowViewState.IdRef="ConnectorActivity_1" UiPathActivityTypeId="aba52a00-4c05-318d-8f99-5ad924b2f277">
+              <isactr:ConnectorActivity.FieldObjects>
+                <isactr:FieldObject Name="prompt" Type="FieldArgument">
+                  <isactr:FieldObject.Value>
+                    <InArgument x:TypeArguments="x:String">[string.Format("Invoice text: {0}", documentData.DocumentMetadata.Text)]</InArgument>
+                  </isactr:FieldObject.Value>
+                </isactr:FieldObject>
+                <isactr:FieldObject Name="isPIIEnabled" Type="FieldArgument">
+                  <isactr:FieldObject.Value>
+                    <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                  </isactr:FieldObject.Value>
+                </isactr:FieldObject>
+                <isactr:FieldObject Name="isFilterPIIEnabled" Type="FieldArgument" />
+                <isactr:FieldObject Name="languageCode" Type="FieldArgument" />
+                <isactr:FieldObject Name="piiEntityCategories_array" Type="FieldArgument" />
+                <isactr:FieldObject Name="confidenceThreshold" Type="FieldArgument" />
+                <isactr:FieldObject Name="topK" Type="FieldArgument" />
+                <isactr:FieldObject Name="contextGrounding" Type="FieldArgument">
+                  <isactr:FieldObject.Value>
+                    <InArgument x:TypeArguments="x:String">None</InArgument>
+                  </isactr:FieldObject.Value>
+                </isactr:FieldObject>
+                <isactr:FieldObject Name="_file" Type="FieldArgument" />
+                <isactr:FieldObject Name="folderKey" Type="FieldArgument" />
+                <isactr:FieldObject Name="topP" Type="FieldArgument" />
+                <isactr:FieldObject Name="indexID" Type="FieldArgument" />
+                <isactr:FieldObject Name="max_tokens" Type="FieldArgument" />
+                <isactr:FieldObject Name="temperature" Type="FieldArgument" />
+                <isactr:FieldObject Name="frequency_penalty" Type="FieldArgument" />
+                <isactr:FieldObject Name="numberOfResults" Type="FieldArgument" />
+                <isactr:FieldObject Name="presence_penalty" Type="FieldArgument" />
+                <isactr:FieldObject Name="n" Type="FieldArgument" />
+                <isactr:FieldObject Name="top_p" Type="FieldArgument" />
+                <isactr:FieldObject Name="_stop" Type="FieldArgument" />
+                <isactr:FieldObject Name="modelName" Type="FieldArgument">
+                  <isactr:FieldObject.Value>
+                    <InArgument x:TypeArguments="x:String">gpt-5.1-2025-11-13</InArgument>
+                  </isactr:FieldObject.Value>
+                </isactr:FieldObject>
+                <isactr:FieldObject Name="instruction" Type="FieldArgument">
+                  <isactr:FieldObject.Value>
+                    <InArgument x:TypeArguments="x:String">You help a finance manager understand invoices. Describe what the company is purchasing in at most 15 words. Use plain, businesslike language. Return only the description.</InArgument>
+                  </isactr:FieldObject.Value>
+                </isactr:FieldObject>
+                <isactr:FieldObject Name="Xminus_signElementsminus_signServiceminus_signProfile" Type="FieldArgument">
+                  <isactr:FieldObject.Value>
+                    <InArgument x:TypeArguments="x:String">high-capacity</InArgument>
+                  </isactr:FieldObject.Value>
+                </isactr:FieldObject>
+                <isactr:FieldObject Name="out_text" Type="FieldArgument">
+                  <isactr:FieldObject.Value>
+                    <OutArgument x:TypeArguments="x:String">[topGeneratedText]</OutArgument>
+                  </isactr:FieldObject.Value>
+                </isactr:FieldObject>
+                <isactr:FieldObject Name="out_maskedText" Type="FieldArgument">
+                  <isactr:FieldObject.Value>
+                    <OutArgument x:TypeArguments="x:String" />
+                  </isactr:FieldObject.Value>
+                </isactr:FieldObject>
+                <isactr:FieldObject Name="Jit_v2_sub_generateChatCompletion" Type="FieldArgument">
+                  <isactr:FieldObject.Value>
+                    <OutArgument x:TypeArguments="uiascb:v2_sub_generateChatCompletion_Create" />
+                  </isactr:FieldObject.Value>
+                </isactr:FieldObject>
+                <isactr:FieldObject Name="out_contextGroundingCitationsString" Type="FieldArgument">
+                  <isactr:FieldObject.Value>
+                    <OutArgument x:TypeArguments="x:String" />
+                  </isactr:FieldObject.Value>
+                </isactr:FieldObject>
+              </isactr:ConnectorActivity.FieldObjects>
+            </isactr:ConnectorActivity>
+            <If Condition="[(documentData.Data.InvoiceNumber.Confidence &gt;= 0.7 AND documentData.Data.DueDate.Value &lt;= DateTime.Parse(&quot;2025-09-22T00:00:00-04:00&quot;)).GetValueOrDefault()]" DisplayName="If 1" sap2010:WorkflowViewState.IdRef="If_2">
+              <If.Then>
+                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <uga:WriteRowConnections ArrayRow="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" DataRow="{x:Null}" ManualEntrySpreadsheetId="{x:Null}" Spreadsheet="{x:Null}" TemplateBrowserItemFriendlyName="{x:Null}" TemplateBrowserItemId="{x:Null}" AuthScopesInvalid="False" BrowserItemFriendlyName="Invoice Report - Due by 22 September 2025" BrowserItemId="https://docs.google.com/spreadsheets/d/1rUDw-2mJnMi5nBwOikze-hPChpt_7e-k_3MpVrM8wVU/edit?usp=drivesdk" ConnectionId="d4a38c6a-2a7a-462f-8950-dcf47a17af76" DataType="IndividualFields" DisplayName="Write Row" HasHeaders="True" sap2010:WorkflowViewState.IdRef="WriteRowConnections_1" ItemSelectionMode="Browse" Range="Sheet1" RowPosition="0" UseConnectionService="True" WorkingWithTemplateSpreadsheet="False" WriteMode="Append">
+                    <uga:WriteRowConnections.AllFields>
+                      <x:Array Type="ugsc:IRangeField">
+                        <ugsmc:RangeColumn DisplayName="Invoice number" Guid="b57c74be-7c3b-4b94-b7a4-9d99850cbc9e" Name="Invoice number">
+                          <ugsmc:RangeColumn.Sample>
+                            <ugsmc:CellDetail TypeFormat="{x:Null}" Value="{x:Null}" Type="Object" />
+                          </ugsmc:RangeColumn.Sample>
+                        </ugsmc:RangeColumn>
+                        <ugsmc:RangeColumn DisplayName="Supplier" Guid="77512366-8afe-4359-a334-bdcbb8790226" Name="Supplier">
+                          <ugsmc:RangeColumn.Sample>
+                            <ugsmc:CellDetail TypeFormat="{x:Null}" Value="{x:Null}" Type="Object" />
+                          </ugsmc:RangeColumn.Sample>
+                        </ugsmc:RangeColumn>
+                        <ugsmc:RangeColumn DisplayName="Due date" Guid="1077407d-3260-43a1-86e5-b8cf7c104d79" Name="Due date">
+                          <ugsmc:RangeColumn.Sample>
+                            <ugsmc:CellDetail TypeFormat="{x:Null}" Value="{x:Null}" Type="Object" />
+                          </ugsmc:RangeColumn.Sample>
+                        </ugsmc:RangeColumn>
+                        <ugsmc:RangeColumn DisplayName="Total amount" Guid="fbe4d0f5-6030-454d-b527-22010faa772e" Name="Total amount">
+                          <ugsmc:RangeColumn.Sample>
+                            <ugsmc:CellDetail TypeFormat="{x:Null}" Value="{x:Null}" Type="Object" />
+                          </ugsmc:RangeColumn.Sample>
+                        </ugsmc:RangeColumn>
+                        <ugsmc:RangeColumn DisplayName="Purchase description" Guid="459a4c55-3d51-489c-896b-aac31d9e01de" Name="Purchase description">
+                          <ugsmc:RangeColumn.Sample>
+                            <ugsmc:CellDetail TypeFormat="{x:Null}" Value="{x:Null}" Type="Object" />
+                          </ugsmc:RangeColumn.Sample>
+                        </ugsmc:RangeColumn>
+                      </x:Array>
+                    </uga:WriteRowConnections.AllFields>
+                    <uga:WriteRowConnections.FileIdBackup>
+                      <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" x:Name="__ReferenceID0" StoredValue="Browse">
+                        <usau:BackupSlot.BackupValues>
+                          <scg:Dictionary x:TypeArguments="ugade:EDriveItemMode, scg:List(x:Object)" />
+                        </usau:BackupSlot.BackupValues>
+                      </usau:BackupSlot>
+                    </uga:WriteRowConnections.FileIdBackup>
+                    <uga:WriteRowConnections.InputDataTypeBackup>
+                      <usau:BackupSlot x:TypeArguments="ugase:InputDataType" StoredValue="IndividualFields">
+                        <usau:BackupSlot.BackupValues>
+                          <scg:List x:TypeArguments="x:Object" x:Key="DataRow" Capacity="1">
+                            <x:Null />
+                          </scg:List>
+                        </usau:BackupSlot.BackupValues>
+                      </usau:BackupSlot>
+                    </uga:WriteRowConnections.InputDataTypeBackup>
+                    <uga:WriteRowConnections.Item>
+                      <ugam:DriveItemArgument Backup="{x:Reference __ReferenceID0}" ConnectionDescriptor="{x:Null}" Existing="{x:Null}" FullPath="{x:Null}" IdOrUrl="{x:Null}" ParentId="{x:Null}" ParentIdFriendlyName="{x:Null}" RelativePath="{x:Null}" BrowserId="https://docs.google.com/spreadsheets/d/1rUDw-2mJnMi5nBwOikze-hPChpt_7e-k_3MpVrM8wVU/edit?usp=drivesdk" ConnectionKey="d4a38c6a-2a7a-462f-8950-dcf47a17af76" FriendlyName="Invoice Report - Due by 22 September 2025" FullPathHint="My Drive/TripleTen - Invoice Reporting/Invoice Report - Due by 22 September 2025" InputMode="Browse">
+                        <ugam:DriveItemArgument.DriveId>
+                          <InArgument x:TypeArguments="x:String" />
+                        </ugam:DriveItemArgument.DriveId>
+                        <ugam:DriveItemArgument.ParentIdFullPathHint>
+                          <InArgument x:TypeArguments="x:String">
+                            <Literal x:TypeArguments="x:String" Value="" />
+                          </InArgument>
+                        </ugam:DriveItemArgument.ParentIdFullPathHint>
+                      </ugam:DriveItemArgument>
+                    </uga:WriteRowConnections.Item>
+                    <uga:WriteRowConnections.RangeWriteModeBackup>
+                      <usau:BackupSlot x:TypeArguments="ugase:RangeWriteMode" StoredValue="Append">
+                        <usau:BackupSlot.BackupValues>
+                          <scg:Dictionary x:TypeArguments="ugase:RangeWriteMode, scg:List(x:Object)" />
+                        </usau:BackupSlot.BackupValues>
+                      </usau:BackupSlot>
+                    </uga:WriteRowConnections.RangeWriteModeBackup>
+                    <uga:WriteRowConnections.State>
+                      <uga:ActivityState>
+                        <uga:ActivityState.SelectedFields>
+                          <scg:List x:TypeArguments="uga:DynamicField" Capacity="5">
+                            <uga:DynamicField Id="b57c74be-7c3b-4b94-b7a4-9d99850cbc9e" Name="dynamicField_AddRangeProperty_20">
+                              <uga:DynamicField.ArgumentValue>
+                                <InArgument x:TypeArguments="x:Object">[string.Format("{0}", documentData.Data.InvoiceNumber.Value)]</InArgument>
+                              </uga:DynamicField.ArgumentValue>
+                            </uga:DynamicField>
+                            <uga:DynamicField Id="77512366-8afe-4359-a334-bdcbb8790226" Name="dynamicField_AddRangeProperty_21">
+                              <uga:DynamicField.ArgumentValue>
+                                <InArgument x:TypeArguments="x:Object">[string.Format("{0}", documentData.Data.VendorName.Value)]</InArgument>
+                              </uga:DynamicField.ArgumentValue>
+                            </uga:DynamicField>
+                            <uga:DynamicField Id="1077407d-3260-43a1-86e5-b8cf7c104d79" Name="dynamicField_AddRangeProperty_22">
+                              <uga:DynamicField.ArgumentValue>
+                                <InArgument x:TypeArguments="x:Object">[string.Format("{0}", documentData.Data.DueDate.Value)]</InArgument>
+                              </uga:DynamicField.ArgumentValue>
+                            </uga:DynamicField>
+                            <uga:DynamicField Id="fbe4d0f5-6030-454d-b527-22010faa772e" Name="dynamicField_AddRangeProperty_23">
+                              <uga:DynamicField.ArgumentValue>
+                                <InArgument x:TypeArguments="x:Object">[string.Format("{0}", documentData.Data.TotalAmount.Value)]</InArgument>
+                              </uga:DynamicField.ArgumentValue>
+                            </uga:DynamicField>
+                            <uga:DynamicField Id="459a4c55-3d51-489c-896b-aac31d9e01de" Name="dynamicField_AddRangeProperty_24">
+                              <uga:DynamicField.ArgumentValue>
+                                <InArgument x:TypeArguments="x:Object">[string.Format("{0}", topGeneratedText)]</InArgument>
+                              </uga:DynamicField.ArgumentValue>
+                            </uga:DynamicField>
+                          </scg:List>
+                        </uga:ActivityState.SelectedFields>
+                      </uga:ActivityState>
+                    </uga:WriteRowConnections.State>
+                  </uga:WriteRowConnections>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_6" />
+              </If.Else>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </uga:ForEachFileFolderConnections.Body>
+      <uga:ForEachFileFolderConnections.Filter>
+        <ugadf:FileFilterArgument LogicalOperator="And">
+          <ugadf:FileFilterArgument.Filters>
+            <ugadf:SingleFileFilterArgument DateValue="{x:Null}" Value="{x:Null}" Values="{x:Null}" Criteria="Type" DateOperator="NewerThan" FileType="PDF" OwnerOperator="In" StringOperator="Contains" TextOperator="Contains" TypeOperator="Equals" />
+          </ugadf:FileFilterArgument.Filters>
+        </ugadf:FileFilterArgument>
+      </uga:ForEachFileFolderConnections.Filter>
+      <uga:ForEachFileFolderConnections.FilterSelectionBackup>
+        <usau:BackupSlot x:TypeArguments="ugae:FilterMode" StoredValue="ConditionBuilder">
+          <usau:BackupSlot.BackupValues>
+            <scg:Dictionary x:TypeArguments="ugae:FilterMode, scg:List(x:Object)" />
+          </usau:BackupSlot.BackupValues>
+        </usau:BackupSlot>
+      </uga:ForEachFileFolderConnections.FilterSelectionBackup>
+      <uga:ForEachFileFolderConnections.Item>
+        <ugam:DriveItemArgument ConnectionDescriptor="{x:Null}" Existing="{x:Null}" FullPath="{x:Null}" IdOrUrl="{x:Null}" ParentId="{x:Null}" ParentIdFriendlyName="{x:Null}" RelativePath="{x:Null}" BrowserId="https://drive.google.com/drive/folders/16fhX_YrWZJb60o3myeo7fmAWlRtWdDfj" ConnectionKey="0b68601b-7631-4c52-986c-980c3843188d" FriendlyName="TripleTen - Invoice Reporting" FullPathHint="My Drive/TripleTen - Invoice Reporting" InputMode="Browse">
+          <ugam:DriveItemArgument.Backup>
+            <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" StoredValue="Browse">
+              <usau:BackupSlot.BackupValues>
+                <scg:Dictionary x:TypeArguments="ugade:EDriveItemMode, scg:List(x:Object)" />
+              </usau:BackupSlot.BackupValues>
+            </usau:BackupSlot>
+          </ugam:DriveItemArgument.Backup>
+          <ugam:DriveItemArgument.DriveId>
+            <InArgument x:TypeArguments="x:String" />
+          </ugam:DriveItemArgument.DriveId>
+          <ugam:DriveItemArgument.ParentIdFullPathHint>
+            <InArgument x:TypeArguments="x:String">
+              <Literal x:TypeArguments="x:String" Value="" />
+            </InArgument>
+          </ugam:DriveItemArgument.ParentIdFullPathHint>
+        </ugam:DriveItemArgument>
+      </uga:ForEachFileFolderConnections.Item>
+    </uga:ForEachFileFolderConnections>
+  </Sequence>
+</Activity>
