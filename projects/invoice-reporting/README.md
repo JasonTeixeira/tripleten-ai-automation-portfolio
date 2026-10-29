@@ -4,6 +4,8 @@ Jason Teixeira · TripleTen AI Automation · Project 6
 
 **Status: tested; final review remains.** On October 29, 2026, all six PDFs were processed in a successful Studio debug run. The sheet contains four populated rows, and the run logged the requested low-confidence invoice-number warning. The presentation includes screenshots of both.
 
+**Submission:** [Open the organized package](submission-package/) or [download the complete ZIP](Invoice-Reporting-Submission.zip).
+
 ## Project links
 
 - [UiPath workflow](https://cloud.uipath.com/sageideasllc/studio_/designer/d9b96923-0a75-4b56-9910-65b2947083f0?solutionId=7d9a4655-6550-4d5b-8ee9-08df3048409f)
