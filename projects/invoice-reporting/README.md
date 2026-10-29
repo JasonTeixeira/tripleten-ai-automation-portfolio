@@ -2,11 +2,13 @@
 
 Jason Teixeira · TripleTen AI Automation · Project 6
 
-**Status: revised after reviewer feedback; resubmission remains.** On October 29, 2026, all six PDFs were processed in a successful Studio debug run. The sheet contains four populated rows, and the run logged the requested low-confidence invoice-number warning. A revised 14-slide presentation adds live UiPath configuration screenshots for all four requested activities, the skipped Else branch, and the Document Understanding warning.
+**Status: revised and resubmitted; TripleTen review in progress.** On October 29, 2026, all six PDFs were processed in a successful Studio debug run. The sheet contains four populated rows, and the run logged the requested low-confidence invoice-number warning. A revised 14-slide presentation adds live UiPath configuration screenshots for all four requested activities, the skipped Else branch, and the Document Understanding warning.
 
 **Revised presentation:** [Invoice-Reporting-Presentation-Revised.pptx](submission-package/Presentation/Invoice-Reporting-Presentation-Revised.pptx) or [complete revised ZIP](Invoice-Reporting-Submission-Revised.zip). The original submission remains available for comparison.
 
 The [live Google Slides deck](https://docs.google.com/presentation/d/1qOMtMsHBpJHjYEha4O_VBPXVe0JN2G0ESTgIWDukNDQ/edit) now includes the six evidence slides and allows anyone with the link to view it.
+
+The [TripleTen Project 6 review](https://tripleten.com/trainer/ai-auto/lesson/aac314fb-e22e-4126-aafc-61a025c5b324/?from=program&tab=1) accepted the updated project link and displayed “Your project is under review.” [Resubmission status screenshot](evidence/tripleten-resubmission-status.jpg) · [live mappings slide screenshot](evidence/live-slides-mappings.jpg).
 
 ## Project links
 

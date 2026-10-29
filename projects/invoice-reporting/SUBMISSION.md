@@ -10,8 +10,8 @@
 - [x] Capture the four activity configurations from live UiPath Studio Web and add separate slides to a revised local PPTX.
 - [x] Inspect and document the Document Understanding solution-definition warning.
 - [x] Add the six evidence slides to the live presentation and set link access to Viewer.
-- [ ] Resubmit the updated project link in TripleTen.
+- [x] Resubmit the updated project link in TripleTen; review is in progress.
 - [ ] Review the faint sample manually, and consider handling missing fields and duplicate rows on rerun. The workflow appends on every run.
 - [x] Review the presentation and obtain approval for final submission to TripleTen.
 
-The sheet contains four populated rows. The revised live presentation is viewable by link; the TripleTen resubmission is pending.
+The sheet contains four populated rows. The revised live presentation is viewable by link. TripleTen displayed “Your project is under review” after resubmission on October 29, 2026.
