@@ -1,0 +1,21 @@
+{
+  "pages": 32,
+  "all_pages_have_text": true,
+  "all_implementation_pages_embed_images": true,
+  "rendered_review_pages": [
+    16,
+    19,
+    22,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32
+  ],
+  "converter": "LibreOffice Impress PDF export",
+  "native_powerpoint_reviewed": false
+}

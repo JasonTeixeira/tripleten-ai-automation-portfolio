@@ -1,30 +1,17 @@
-# Reviewer revision status
+# Completed reviewer implementation-evidence revision
 
-## Completed locally
+The local n8n owner setup is complete. Actual editor captures and the revised 32-slide deck are now included. Slides 16–32 each show one large, labeled screenshot. See [reviewer response](../../REVIEWER-RESPONSE.md) for the request-to-slide index.
 
-- Preserved the published original capstone and presentation.
-- Added a real native n8n Switch with explicit route comparisons and a fail-safe extra output to Manual Review.
-- Added visible Exception, Routine Log and Manual Review branch nodes. The workflow now has 11 nodes.
-- Reformatted the real AI prompt and request/response mapping code for readable editor inspection.
-- Ran the revised workflow against the real local LLM and a new isolated SQLite database. Switch counts: [2, 1, 3, 0].
-- Ran a real controlled outage. Switch counts: [0, 0, 1, 0].
-- Replayed the six messages. All six duplicate writes were skipped, leaving7 unique rows and13 audit events after the outage and replay.
-- Passed42 automated tests and Ruff. Ledger code coverage remains94%.
-- Independent reviewer reran42 tests, checked outputs and redaction, and found no routing correctness or security blocker.
-- Captured actual Docker Desktop SQLite-path configuration, a read-only SQL query with six stored normal-run records, and the unchanged backend routing source.
+## Implementation and observed runs
 
-## Required user step
+- Native n8n Switch exposes exception, logged and manual_review, with unexpected values sent to Manual Review. Three terminal branch nodes make 11 connected nodes.
+- The ledger service validates and writes SQLite before returning the route. Native branch nodes display the outcome and do not send notifications.
+- Original historical run: 3 exceptions, 1 routine log, 2 reviews; 34 tests.
+- Earlier revised CLI run: 2 exceptions, 1 routine log,3 reviews. SUP-003 failed the exact-quote check because the quote differed in capitalization. All 36 checked core extraction fields matched. Normal, outage and replay snapshots contain 7 unique records and 13 audit events, with 6 duplicate skips.
+- Fresh actual editor run: 3 exceptions, 1 routine log, 2 reviews. Separate controlled editor outage: 1 review record with llm_unavailable. `ui-results.json`, `ui-audit.json` and `ui-database-output.sqlite` preserve this separate 7-row,7-attempt snapshot. No duplicate replay is claimed for the editor run.
+- Current verification: 42 tests pass, 94% ledger coverage, Ruff checks pass. See tests.txt, coverage.txt and lint.txt.
+- Full-resolution screenshots preserve actual application views. Cropped slide regions focus on the relevant configuration without changing values or creating UI.
 
-Open http://localhost:5680/setup and complete the first local n8n owner account. The original project used n8n's CLI and has no existing editor owner login. New-password entry must be completed by the user under computer-use confirmation rules. No default password is placed in code or requested in chat.
+## Delivery boundary
 
-## Still pending
-
-- Actual n8n canvas, individual node parameter/mapping screens and execution screenshots.
-- A readable revised presentation with those captures spread across separate slides.
-- Updated submission ZIP, final public manifest and GitHub publication of the completed revision.
-
-Do not resubmit the original14-slide deck as the completed screenshot revision. No fabricated or recreated n8n screenshots will be used.
-
-## Evidence boundary
-
-Original run:3 exceptions,1 routine log,2 reviews;34 tests. New revision run:2 exceptions,1 routine log,3 reviews;42 tests. In the new run, SUP-003's quote differs in capitalization from the source and correctly fails the exact-source check. The42-test suite verifies all36 core fields in that new six-message run separately from quote validity.
+Revised deck, PDF and updated ZIP are prepared for the authorized public GitHub handoff. Course resubmission is a separate user action. Approval and grade remain the instructor's decision.

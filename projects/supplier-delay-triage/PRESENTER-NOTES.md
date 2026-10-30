@@ -27,3 +27,26 @@
 13. **Reflection.** AI helped turn varied language into consistent fields. The most useful safeguard was checking facts outside the model: it assigned high confidence to contradictory dates, but code caught the conflict. Future work includes inbox integration, purchase-order checks, and better evaluation of whether evidence quotes support a classification. The model’s license also needs review before commercial use.
 
 14. **Submission.** The package includes the editable deck, PDF, workflow files, prompt, inputs, outputs, source code, tests, and raw evidence. The local prototype is complete and tested. Live inbox integration and a scheduled production pilot are future work.
+
+
+## Reviewer implementation appendix
+
+Slides 1–14 preserve the original demonstration, including its original 34-test results. Slide 15 introduces the revision, which has 42 passing tests and eleven nodes. The fresh editor run and the earlier CLI revision are distinct runs.
+
+16. **Complete n8n workflow.** Actual successful editor run. All 11 nodes connect, with 3 exception, 1 routine and 2 review items.
+17. **API intake configuration.** GET /intake supplies six fictional email records, including subject and body.
+18. **One email per workflow item.** Split Out maps the messages array into six individual supplier email records.
+19. **Custom AI system prompt.** The actual Prepare AI Request node defines extraction rules and treats email text as untrusted data.
+20. **Email content mapped into the LLM request.** Each email becomes JSON.stringify(item.json). The request includes the model, JSON Schema and system prompt.
+21. **Ollama HTTP configuration.** POST /api/chat sends $json.request to Qwen2.5 3B and returns the actual structured response.
+22. **AI response and source mapping.** The Code node pairs the source record with message.content. The validator parses and checks that JSON.
+23. **Validation and SQLite write request.** POST /record sends $json. The separate ledger service validates and stores the result before returning its route.
+24. **Mapped payload for SQLite storage.** The HTTP body maps the complete $json source and AI payload into /record. The response confirms created: true.
+25. **Exception condition and execution.** Native Switch compares $json.route with exception. Its Exception output contains three actual records.
+26. **Routine Log condition and execution.** Native Switch compares $json.route with logged. Its Routine Log output contains SUP-002.
+27. **Manual Review condition and execution.** Native Switch compares $json.route with manual_review. Missing or conflicting dates produce two review items.
+28. **SQLite service configuration.** The ledger container sets LEDGER_DB to /data/ledger-review.sqlite. SQLite storage runs in this service.
+29. **SQLite persisted CLI-run records.** Read-only SQL from the earlier CLI revision shows 2 exceptions, 1 routine log and 3 review records.
+30. **Controlled LLM outage execution.** The actual editor run continues through the failed LLM call and routes one item to Manual Review.
+31. **Controlled outage configuration and error.** The test deliberately calls closed port 1. Continue-on-error passes the failure to validation.
+32. **Stored outage review result.** FAILURE-001 reaches Manual Review with llm_unavailable. The workflow completes and stores the record.

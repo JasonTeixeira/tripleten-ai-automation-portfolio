@@ -1,0 +1,104 @@
+[
+  {
+    "slide": 16,
+    "title": "Complete n8n workflow",
+    "file": "01-workflow-canvas.png",
+    "caption": "Actual successful editor run. All 11 nodes connect, with 3 exception, 1 routine and 2 review items."
+  },
+  {
+    "slide": 17,
+    "title": "API intake configuration",
+    "file": "02-api-intake.png",
+    "caption": "GET /intake supplies six fictional email records, including subject and body."
+  },
+  {
+    "slide": 18,
+    "title": "One email per workflow item",
+    "file": "03-split-messages.png",
+    "caption": "Split Out maps the messages array into six individual supplier email records."
+  },
+  {
+    "slide": 19,
+    "title": "Custom AI system prompt",
+    "file": "04-custom-prompt.png",
+    "caption": "The actual Prepare AI Request node defines extraction rules and treats email text as untrusted data."
+  },
+  {
+    "slide": 20,
+    "title": "Email content mapped into the LLM request",
+    "file": "05-email-request-mapping.png",
+    "caption": "Each email becomes JSON.stringify(item.json). The request includes the model, JSON Schema and system prompt."
+  },
+  {
+    "slide": 21,
+    "title": "Ollama HTTP configuration",
+    "file": "06-ollama-configuration.png",
+    "caption": "POST /api/chat sends $json.request to Qwen2.5 3B and returns the actual structured response."
+  },
+  {
+    "slide": 22,
+    "title": "AI response and source mapping",
+    "file": "07-json-response-mapping.png",
+    "caption": "The Code node pairs the source record with message.content. The validator parses and checks that JSON."
+  },
+  {
+    "slide": 23,
+    "title": "Validation and SQLite write request",
+    "file": "08-validation-storage-request.png",
+    "caption": "POST /record sends $json. The separate ledger service validates and stores the result before returning its route."
+  },
+  {
+    "slide": 24,
+    "title": "Mapped payload for SQLite storage",
+    "file": "08-validation-storage-request.png",
+    "caption": "The HTTP body maps the complete $json source and AI payload into /record. The response confirms created: true."
+  },
+  {
+    "slide": 25,
+    "title": "Exception condition and execution",
+    "file": "09-exception-routing.png",
+    "caption": "Native Switch compares $json.route with exception. Its Exception output contains three actual records."
+  },
+  {
+    "slide": 26,
+    "title": "Routine Log condition and execution",
+    "file": "10-routine-routing.png",
+    "caption": "Native Switch compares $json.route with logged. Its Routine Log output contains SUP-002."
+  },
+  {
+    "slide": 27,
+    "title": "Manual Review condition and execution",
+    "file": "14-manual-review-routing.png",
+    "caption": "Native Switch compares $json.route with manual_review. Missing or conflicting dates produce two review items."
+  },
+  {
+    "slide": 28,
+    "title": "SQLite service configuration",
+    "file": "11-sqlite-service-config.png",
+    "caption": "The ledger container sets LEDGER_DB to /data/ledger-review.sqlite. SQLite storage runs in this service."
+  },
+  {
+    "slide": 29,
+    "title": "SQLite persisted CLI-run records",
+    "file": "12-sqlite-persisted-records.png",
+    "caption": "Read-only SQL from the earlier CLI revision shows 2 exceptions, 1 routine log and 3 review records."
+  },
+  {
+    "slide": 30,
+    "title": "Controlled LLM outage execution",
+    "file": "15-outage-execution.png",
+    "caption": "The actual editor run continues through the failed LLM call and routes one item to Manual Review."
+  },
+  {
+    "slide": 31,
+    "title": "Controlled outage configuration and error",
+    "file": "16-outage-configuration.png",
+    "caption": "The test deliberately calls closed port 1. Continue-on-error passes the failure to validation."
+  },
+  {
+    "slide": 32,
+    "title": "Stored outage review result",
+    "file": "17-outage-review-output.png",
+    "caption": "FAILURE-001 reaches Manual Review with llm_unavailable. The workflow completes and stores the record."
+  }
+]

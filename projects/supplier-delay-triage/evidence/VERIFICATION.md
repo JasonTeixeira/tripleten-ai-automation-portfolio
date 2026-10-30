@@ -48,3 +48,7 @@ The statements above record the local build and test phase. The owner subsequent
 For Git readability, extracted execution text logs have trailing whitespace removed and the CSV uses LF line endings. Record values and execution results are unchanged. The included audited ZIP keeps the original record formatting, with execution-resume token values redacted.
 
 Publication security review redacted all four completed n8n `resumeToken` values from the public execution logs and downloadable ZIP. The original local archive remains private. No other credentials were found by the publication review.
+
+## Reviewer screenshot revision verification
+
+The revised importable workflows contain eleven nodes, including a native Switch and three visible branches. The current suite passes 42 tests with 94% ledger line coverage. Ruff, formatting, Python compilation, shell syntax and Compose validation pass. Actual editor captures show a fresh 3/1/2 normal execution and an independent successful controlled outage. Earlier revised CLI evidence 2/1/3 and duplicate prevention remain separate. See reviewer-fix/ for raw screenshots, separate snapshots, run logs, current test output and presentation validation. The 32-slide revised PPTX and PDF replace the original deck as the resubmission artifact. No course upload is performed by this repository update.

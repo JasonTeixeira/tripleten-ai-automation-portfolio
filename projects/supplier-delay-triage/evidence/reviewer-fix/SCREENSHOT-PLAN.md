@@ -20,4 +20,4 @@ Every screenshot must come from the running n8n editor or actual database servic
 | SQLite records | Docker Desktop ledger Exec | Read-only SQL query and stored rows |
 | Outage execution | Controlled outage workflow execution | llm_unavailable review item and completed run |
 
-Each configuration gets its own slide, with one large readable screenshot and a plain caption. Preserve the original 14-slide submission as historical evidence. Label the fresh revision run separately because a conservative quote check sends SUP-003 to manual review in this run.
+Each configuration gets its own slide, with one large readable screenshot and a plain caption. Preserve the original 14-slide submission as historical evidence. Completed captures are indexed in slide-map.json. The earlier revised CLI run sent SUP-003 to manual review for an exact-quote mismatch. The fresh editor run sent it to Exception. Both real runs remain separate and labeled.

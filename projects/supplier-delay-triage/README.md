@@ -6,25 +6,25 @@ A new workflow for a small wholesale or retail operations team. It converts unst
 
 ## Review this final project
 
-- **[View the 14-slide presentation (PDF)](presentation/Supplier-Delay-Triage-Jason-Teixeira-Final.pdf)**
-- [Download the editable PowerPoint](presentation/Supplier-Delay-Triage-Jason-Teixeira-Final.pptx?raw=1)
-- [Download the complete audited submission package](submission/TripleTen-Final-Project-Jason-Teixeira-Audited.zip?raw=1)
+- **[View the revised 32-slide presentation (PDF)](presentation/Supplier-Delay-Triage-Jason-Teixeira-Reviewer-Revision-Final.pdf)**
+- [Download the editable PowerPoint](presentation/Supplier-Delay-Triage-Jason-Teixeira-Reviewer-Revision-Final.pptx?raw=1)
+- [Download the complete audited submission package](submission/TripleTen-Final-Project-Jason-Teixeira-Reviewer-Revision.zip?raw=1)
 - [Read the project submission and reflection](SUBMISSION.md)
 - [Check the requirement-by-requirement audit](RUBRIC-AUDIT.md)
 - [Inspect the n8n workflow](workflows/supplier-delay-triage.json), [custom prompt](prompt.txt), and [sample inputs](samples/messages.json)
 - [Inspect structured results](evidence/results.csv), [field accuracy](evidence/field-accuracy.json), and [verification evidence](evidence/VERIFICATION.md)
 
-**Demonstrated results:** 6/6 expected routes; 36/36 checked core extraction fields; successful controlled outage and duplicate tests; 34 passing automated tests with 94% ledger line coverage. These measurements apply to the included small fictional test set.
+**Demonstrated results:** 6/6 expected routes; 36/36 checked core extraction fields; successful controlled outage and duplicate tests; 42 passing automated tests with 94% ledger line coverage. These measurements apply to the included small fictional test set.
 
 This repository publishes the project files and evidence. The workflow is a tested local prototype, not a hosted inbox service. The downloadable ZIP contains the audited handoff with execution-resume tokens redacted and checksums regenerated; the repository adds these navigation links. Course submission is a separate step.
 
 ## Reviewer-requested implementation evidence revision
 
-The original 14-slide presentation and its 34-test evidence remain available above. A local revision adds a native n8n Switch and three visible outcome branches, expands verification to **42 passing tests**, and preserves the original business-rule validator.
+The revised deck adds **17 individual implementation screenshots**, one per slide, covering the actual n8n canvas, intake API, prompt and email mapping, Ollama request, response/source mapping, validation/write request, all three native Switch conditions and outputs, SQLite configuration and persisted rows, and a controlled outage.
 
-The new actual run routes **2 exceptions, 1 routine item and 3 manual reviews**. SUP-003 enters review because the new model response changed the capitalization of its source quote, which fails the exact-quote check. All 36 checked core extraction fields still match the source fixtures. The original **3 exceptions / 1 routine / 2 reviews** is a separate earlier run, not the new run's result.
+[Reviewer response and slide index](REVIEWER-RESPONSE.md) maps every requested improvement to its slide. [Full-resolution captures and execution evidence](evidence/reviewer-fix/) accompany the deck. The original 14-slide [PDF](presentation/Supplier-Delay-Triage-Jason-Teixeira-Final.pdf) remains an explicitly historical artifact.
 
-The n8n owner-account setup must finish before the required editor configuration screenshots can be captured. Those screenshots and the revised presentation are **not yet complete**. See [revision status](evidence/reviewer-fix/REVISION-STATUS.md). This status is kept explicit so the original submission is not mistaken for an approved revision.
+The fresh **editor run** produced **3 exceptions, 1 routine item and 2 manual reviews**. The earlier revised **CLI run** produced **2 exceptions, 1 routine item and 3 reviews** because SUP-003's quote changed capitalization and failed the exact-quote check. These are separate real model runs. The original run also produced 3/1/2. The revised suite passes **42 tests**, and ledger coverage remains **94%**. See [revision evidence](evidence/reviewer-fix/REVISION-STATUS.md).
 
 ## Manual process and business value
 
@@ -56,10 +56,14 @@ flowchart LR
   D --> E[Build record payload]
   E --> F[Ledger: validate and calculate delay]
   F --> G[(SQLite results and audit log)]
-  G --> H[Exception queue]
-  G --> I[Routine log]
-  G --> J[Manual review queue]
+  F --> S[n8n Switch on returned route]
+  S --> H[Exception branch]
+  S --> I[Routine Log branch]
+  S --> J[Manual Review branch]
+  S -->|Unexpected route fallback| J
 ```
+
+SQLite writes happen inside the ledger service before it returns the route. The native n8n Switch exposes that validated route through three visible terminal branches.
 
 The AI call continues to the recording step if it fails. Validation routes low-confidence, ambiguous, malformed, unsupported, or contradictory output to `manual_review`. Valid delays and short shipments become `exception`; valid on-time updates become `logged`. A delay of at least three days gets `high` priority. The ledger recalculates routing; it never trusts an AI-supplied route.
 

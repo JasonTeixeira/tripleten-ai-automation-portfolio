@@ -20,8 +20,8 @@ The supplied technical and presentation checklist is covered by observable local
 | Input and output screenshots | Slides 5 and 9; original screenshots and CSV/database supplied | Covered |
 | AI results and error-log screenshots | Slides 7 and 10 | Covered |
 | Reflection | Process, importance, AI contribution and improvements in slides 2–3 and 13; presenter notes | Covered |
-| Professional presentation | 14-slide editable PPTX and PDF; package/layout checks and visual review | Covered; PDF checked, native PowerPoint/Google Slides app not directly tested |
-| Accessible submission | ZIP contains code, importable workflows, data, results, prompt, evidence and both deck formats | GitHub project files prepared for publication; course upload remains a separate step |
+| Professional presentation | 32-slide revised editable PPTX and PDF; package/layout checks and visual review | Covered; PDF checked, native PowerPoint/Google Slides app not directly tested |
+| Accessible submission | ZIP contains code, importable workflows, data, results, prompt, evidence and both deck formats | Public GitHub project files and revised package; course upload remains a separate step |
 
 ## Accuracy check added during this audit
 
@@ -39,3 +39,7 @@ A paid subscription, a live Gmail connection, a public deployment, a production 
 - Read the PDF and presenter notes and confirm you can explain the workflow and its limitations.
 - Upload the presentation and supporting workflow package using TripleTen's accepted method. If a share link is used, verify that the reviewer can open it.
 - A top grade remains the instructor's decision; no score is promised.
+
+## Instructor-required implementation evidence
+
+The revised deck adds actual readable n8n screenshots on slides 16–32, mapped individually in REVIEWER-RESPONSE.md. It shows every requested configuration, source/AI mapping, three route conditions and outputs, SQLite service/output, and successful plus controlled-outage execution. The current importable workflows contain 11 nodes. Tests now total 42 passing, with 94% ledger coverage. Original 34-test evidence is historical. Fresh editor results 3/1/2 and earlier revised CLI results 2/1/3 are separately preserved and labeled.

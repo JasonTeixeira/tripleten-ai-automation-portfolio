@@ -1,0 +1,12 @@
+{
+  "normal": {
+    "exception": 3,
+    "logged": 1,
+    "manual_review": 2
+  },
+  "controlled_outage": {
+    "manual_review": 1
+  },
+  "stored_rows": 7,
+  "audit_attempts": 7
+}

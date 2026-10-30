@@ -42,6 +42,6 @@ test_three_explicit_route_conditions (test_workflow_graph.WorkflowGraphTests.tes
 test_unmatched_routes_fall_back_to_manual_review (test_workflow_graph.WorkflowGraphTests.test_unmatched_routes_fall_back_to_manual_review) ... ok
 
 ----------------------------------------------------------------------
-Ran 42 tests in 0.567s
+Ran 42 tests in 0.560s
 
 OK

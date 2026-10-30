@@ -1,0 +1,46 @@
+{
+  "attempts": [
+    {
+      "id": 1,
+      "message_id": "SUP-006",
+      "created_at": "2026-10-30T17:26:24.325079+00:00",
+      "event": "created"
+    },
+    {
+      "id": 2,
+      "message_id": "SUP-005",
+      "created_at": "2026-10-30T17:26:24.340945+00:00",
+      "event": "created"
+    },
+    {
+      "id": 3,
+      "message_id": "SUP-003",
+      "created_at": "2026-10-30T17:26:24.342673+00:00",
+      "event": "created"
+    },
+    {
+      "id": 4,
+      "message_id": "SUP-004",
+      "created_at": "2026-10-30T17:26:24.342251+00:00",
+      "event": "created"
+    },
+    {
+      "id": 5,
+      "message_id": "SUP-002",
+      "created_at": "2026-10-30T17:26:24.342152+00:00",
+      "event": "created"
+    },
+    {
+      "id": 6,
+      "message_id": "SUP-001",
+      "created_at": "2026-10-30T17:26:24.342561+00:00",
+      "event": "created"
+    },
+    {
+      "id": 7,
+      "message_id": "FAILURE-001",
+      "created_at": "2026-10-30T17:36:27.394056+00:00",
+      "event": "created"
+    }
+  ]
+}

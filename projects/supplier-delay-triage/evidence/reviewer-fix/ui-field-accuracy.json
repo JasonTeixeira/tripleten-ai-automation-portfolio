@@ -1,0 +1,259 @@
+{
+  "checked": 36,
+  "matched": 36,
+  "scope": "Six core fields per fictional supplier email; excludes summary quality, quote relevance and confidence calibration.",
+  "checks": [
+    {
+      "message_id": "SUP-001",
+      "field": "purchase_order",
+      "expected": "PO-1042",
+      "actual": "PO-1042",
+      "match": true
+    },
+    {
+      "message_id": "SUP-001",
+      "field": "supplier",
+      "expected": "Harbor Packaging",
+      "actual": "Harbor Packaging",
+      "match": true
+    },
+    {
+      "message_id": "SUP-001",
+      "field": "event_type",
+      "expected": "delay",
+      "actual": "delay",
+      "match": true
+    },
+    {
+      "message_id": "SUP-001",
+      "field": "promised_date",
+      "expected": "2026-11-02",
+      "actual": "2026-11-02",
+      "match": true
+    },
+    {
+      "message_id": "SUP-001",
+      "field": "revised_date",
+      "expected": "2026-11-06",
+      "actual": "2026-11-06",
+      "match": true
+    },
+    {
+      "message_id": "SUP-001",
+      "field": "quantity",
+      "expected": 400,
+      "actual": 400,
+      "match": true
+    },
+    {
+      "message_id": "SUP-002",
+      "field": "purchase_order",
+      "expected": "PO-2081",
+      "actual": "PO-2081",
+      "match": true
+    },
+    {
+      "message_id": "SUP-002",
+      "field": "supplier",
+      "expected": "Metro Components",
+      "actual": "Metro Components",
+      "match": true
+    },
+    {
+      "message_id": "SUP-002",
+      "field": "event_type",
+      "expected": "on_track",
+      "actual": "on_track",
+      "match": true
+    },
+    {
+      "message_id": "SUP-002",
+      "field": "promised_date",
+      "expected": "2026-11-03",
+      "actual": "2026-11-03",
+      "match": true
+    },
+    {
+      "message_id": "SUP-002",
+      "field": "revised_date",
+      "expected": "2026-11-03",
+      "actual": "2026-11-03",
+      "match": true
+    },
+    {
+      "message_id": "SUP-002",
+      "field": "quantity",
+      "expected": 120,
+      "actual": 120,
+      "match": true
+    },
+    {
+      "message_id": "SUP-003",
+      "field": "purchase_order",
+      "expected": "PO-3095",
+      "actual": "PO-3095",
+      "match": true
+    },
+    {
+      "message_id": "SUP-003",
+      "field": "supplier",
+      "expected": "Cedar Textiles",
+      "actual": "Cedar Textiles",
+      "match": true
+    },
+    {
+      "message_id": "SUP-003",
+      "field": "event_type",
+      "expected": "short_shipment",
+      "actual": "short_shipment",
+      "match": true
+    },
+    {
+      "message_id": "SUP-003",
+      "field": "promised_date",
+      "expected": "2026-11-04",
+      "actual": "2026-11-04",
+      "match": true
+    },
+    {
+      "message_id": "SUP-003",
+      "field": "revised_date",
+      "expected": null,
+      "actual": null,
+      "match": true
+    },
+    {
+      "message_id": "SUP-003",
+      "field": "quantity",
+      "expected": 60,
+      "actual": 60,
+      "match": true
+    },
+    {
+      "message_id": "SUP-004",
+      "field": "purchase_order",
+      "expected": "PO-4100",
+      "actual": "PO-4100",
+      "match": true
+    },
+    {
+      "message_id": "SUP-004",
+      "field": "supplier",
+      "expected": "Atlas Supplies",
+      "actual": "Atlas Supplies",
+      "match": true
+    },
+    {
+      "message_id": "SUP-004",
+      "field": "event_type",
+      "expected": "delay",
+      "actual": "delay",
+      "match": true
+    },
+    {
+      "message_id": "SUP-004",
+      "field": "promised_date",
+      "expected": "2026-11-05",
+      "actual": "2026-11-05",
+      "match": true
+    },
+    {
+      "message_id": "SUP-004",
+      "field": "revised_date",
+      "expected": null,
+      "actual": null,
+      "match": true
+    },
+    {
+      "message_id": "SUP-004",
+      "field": "quantity",
+      "expected": 250,
+      "actual": 250,
+      "match": true
+    },
+    {
+      "message_id": "SUP-005",
+      "field": "purchase_order",
+      "expected": "PO-5107",
+      "actual": "PO-5107",
+      "match": true
+    },
+    {
+      "message_id": "SUP-005",
+      "field": "supplier",
+      "expected": "Pine Office",
+      "actual": "Pine Office",
+      "match": true
+    },
+    {
+      "message_id": "SUP-005",
+      "field": "event_type",
+      "expected": "delay",
+      "actual": "delay",
+      "match": true
+    },
+    {
+      "message_id": "SUP-005",
+      "field": "promised_date",
+      "expected": "2026-11-10",
+      "actual": "2026-11-10",
+      "match": true
+    },
+    {
+      "message_id": "SUP-005",
+      "field": "revised_date",
+      "expected": "2026-11-08",
+      "actual": "2026-11-08",
+      "match": true
+    },
+    {
+      "message_id": "SUP-005",
+      "field": "quantity",
+      "expected": 80,
+      "actual": 80,
+      "match": true
+    },
+    {
+      "message_id": "SUP-006",
+      "field": "purchase_order",
+      "expected": "PO-6012",
+      "actual": "PO-6012",
+      "match": true
+    },
+    {
+      "message_id": "SUP-006",
+      "field": "supplier",
+      "expected": "Summit Parts",
+      "actual": "Summit Parts",
+      "match": true
+    },
+    {
+      "message_id": "SUP-006",
+      "field": "event_type",
+      "expected": "delay",
+      "actual": "delay",
+      "match": true
+    },
+    {
+      "message_id": "SUP-006",
+      "field": "promised_date",
+      "expected": "2026-11-04",
+      "actual": "2026-11-04",
+      "match": true
+    },
+    {
+      "message_id": "SUP-006",
+      "field": "revised_date",
+      "expected": "2026-11-05",
+      "actual": "2026-11-05",
+      "match": true
+    },
+    {
+      "message_id": "SUP-006",
+      "field": "quantity",
+      "expected": 50,
+      "actual": 50,
+      "match": true
+    }
+  ]
+}
