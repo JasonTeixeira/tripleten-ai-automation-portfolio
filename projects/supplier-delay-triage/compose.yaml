@@ -1,0 +1,35 @@
+name: tripleten-supplier-capstone
+services:
+  ollama:
+    image: supplier-triage-ollama-cpu:local
+    build:
+      context: .
+      dockerfile: Ollama.CPU.Dockerfile
+    volumes:
+      - ./.runtime/ollama:/root/.ollama
+    mem_limit: 5g
+  ledger:
+    image: python:3.12-slim
+    command: python /project/src/ledger.py
+    environment:
+      LEDGER_HOST: 0.0.0.0
+      LEDGER_DB: /data/ledger.sqlite
+    ports:
+      - 127.0.0.1:8091:8091
+    volumes:
+      - ./src:/project/src:ro
+      - ./samples:/project/samples:ro
+      - ./evidence:/data
+  n8n:
+    image: docker.n8n.io/n8nio/n8n@sha256:9a8d8dcea75667496695d7810d7e1fe018a65efb36cc499d347f3931b3957b5d
+    profiles: [runner]
+    environment:
+      N8N_DIAGNOSTICS_ENABLED: 'false'
+      N8N_VERSION_NOTIFICATIONS_ENABLED: 'false'
+      N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: 'true'
+      N8N_COMMUNITY_PACKAGES_ENABLED: 'false'
+      GENERIC_TIMEZONE: America/New_York
+    volumes:
+      - ./workflows:/workflows:ro
+      - ./.runtime/n8n:/home/node/.n8n
+    depends_on: [ollama, ledger]

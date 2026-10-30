@@ -1,0 +1,4 @@
+Fontconfig warning: no <cachedir> elements found. Check configuration.
+Fontconfig warning: adding <cachedir>/@.__________________________________________________OOO/var/cache/fontconfig</cachedir>
+Fontconfig warning: adding <cachedir prefix="xdg">fontconfig</cachedir>
+convert /Users/Sage/code/active/tripleten-final-project/presentation/Supplier-Delay-Triage-Jason-Teixeira-Final.pptx as a Impress document -> /Users/Sage/code/active/tripleten-final-project/presentation/Supplier-Delay-Triage-Jason-Teixeira-Final.pdf using filter : impress_pdf_Export

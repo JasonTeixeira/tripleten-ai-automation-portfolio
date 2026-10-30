@@ -1,0 +1,124 @@
+{
+  "results": [
+    {
+      "message_id": "FAILURE-001",
+      "created_at": "2026-10-30T13:59:27.618418+00:00",
+      "subject": "Harbor Packaging: PO-1042 delivery update",
+      "route": "manual_review",
+      "priority": "review",
+      "delay_days": null,
+      "issues": [
+        "invalid_confidence",
+        "invalid_event_type",
+        "invalid_summary",
+        "invalid_supplier",
+        "llm_unavailable",
+        "missing_fields",
+        "ungrounded_purchase_order",
+        "ungrounded_quote"
+      ],
+      "source_json": {
+        "message_id": "FAILURE-001",
+        "subject": "Harbor Packaging: PO-1042 delivery update",
+        "body": "Harbor Packaging update for PO-1042. The promised delivery date was 2026-11-02. The revised delivery date is 2026-11-06 because of a production delay. Quantity: 400 units."
+      },
+      "ai_json": {
+        "error": "llm_unavailable"
+      }
+    },
+    {
+      "message_id": "SUP-001",
+      "created_at": "2026-10-30T13:59:23.371782+00:00",
+      "subject": "Harbor Packaging: PO-1042 delivery update",
+      "route": "exception",
+      "priority": "high",
+      "delay_days": 4,
+      "issues": [],
+      "source_json": {
+        "message_id": "SUP-001",
+        "subject": "Harbor Packaging: PO-1042 delivery update",
+        "body": "Harbor Packaging update for PO-1042. The promised delivery date was 2026-11-02. The revised delivery date is 2026-11-06 because of a production delay. Quantity: 400 units."
+      },
+      "ai_json": "{\n  \"purchase_order\": \"PO-1042\",\n  \"supplier\": \"Harbor Packaging\",\n  \"event_type\": \"delay\",\n  \"promised_date\": \"2026-11-02\",\n  \"revised_date\": \"2026-11-06\",\n  \"quantity\": 400,\n  \"summary\": \"Production delay caused revised delivery date from November 2 to November 6.\",\n  \"evidence_quote\": \"revised delivery date is 2026-11-06 because of a production delay\",\n  \"confidence\": 1.0\n}"
+    },
+    {
+      "message_id": "SUP-002",
+      "created_at": "2026-10-30T13:59:23.373146+00:00",
+      "subject": "Metro Components: PO-2081 on schedule",
+      "route": "logged",
+      "priority": "normal",
+      "delay_days": 0,
+      "issues": [],
+      "source_json": {
+        "message_id": "SUP-002",
+        "subject": "Metro Components: PO-2081 on schedule",
+        "body": "Metro Components confirms PO-2081 is on track. Promised delivery date: 2026-11-03. Current delivery date: 2026-11-03. Quantity: 120 units."
+      },
+      "ai_json": "{\n  \"purchase_order\": \"PO-2081\",\n  \"supplier\": \"Metro Components\",\n  \"event_type\": \"on_track\",\n  \"promised_date\": \"2026-11-03\",\n  \"revised_date\": \"2026-11-03\",\n  \"quantity\": 120,\n  \"summary\": \"Metro Components confirms PO-2081 is on schedule with no changes to the delivery date.\",\n  \"evidence_quote\": \"Promised delivery date: 2026-11-03. Current delivery date: 2026-11-03.\",\n  \"confidence\": 1.0\n}"
+    },
+    {
+      "message_id": "SUP-003",
+      "created_at": "2026-10-30T13:59:23.370378+00:00",
+      "subject": "Cedar Textiles: PO-3095 partial shipment",
+      "route": "exception",
+      "priority": "normal",
+      "delay_days": null,
+      "issues": [],
+      "source_json": {
+        "message_id": "SUP-003",
+        "subject": "Cedar Textiles: PO-3095 partial shipment",
+        "body": "Cedar Textiles can ship only 60 of the 100 units ordered for PO-3095. The remaining 40 units have no confirmed delivery date. Promised delivery date: 2026-11-04."
+      },
+      "ai_json": "{\n  \"purchase_order\": \"PO-3095\",\n  \"supplier\": \"Cedar Textiles\",\n  \"event_type\": \"short_shipment\",\n  \"promised_date\": \"2026-11-04\",\n  \"revised_date\": null,\n  \"quantity\": 60,\n  \"summary\": \"Cedar Textiles will ship 60 units of PO-3095, with 40 units having no confirmed delivery date.\",\n  \"evidence_quote\": \"Promised delivery date: 2026-11-04\",\n  \"confidence\": 0.9\n}"
+    },
+    {
+      "message_id": "SUP-004",
+      "created_at": "2026-10-30T13:59:23.372156+00:00",
+      "subject": "Atlas Supplies: PO-4100 possible delay",
+      "route": "manual_review",
+      "priority": "review",
+      "delay_days": null,
+      "issues": [
+        "missing_dates"
+      ],
+      "source_json": {
+        "message_id": "SUP-004",
+        "subject": "Atlas Supplies: PO-4100 possible delay",
+        "body": "Atlas Supplies update for PO-4100: delivery might slip. We cannot confirm the new date yet. Promised delivery date: 2026-11-05. Quantity: 250 units."
+      },
+      "ai_json": "{\n  \"purchase_order\": \"PO-4100\",\n  \"supplier\": \"Atlas Supplies\",\n  \"event_type\": \"delay\",\n  \"promised_date\": \"2026-11-05\",\n  \"revised_date\": null,\n  \"quantity\": 250,\n  \"summary\": \"Delivery of PO-4100 could be delayed with a promised date of 2026-11-05 and 250 units.\",\n  \"evidence_quote\": \"delivery might slip\",\n  \"confidence\": 0.85\n}"
+    },
+    {
+      "message_id": "SUP-005",
+      "created_at": "2026-10-30T13:59:23.372838+00:00",
+      "subject": "Pine Office: PO-5107 date correction",
+      "route": "manual_review",
+      "priority": "review",
+      "delay_days": -2,
+      "issues": [
+        "inconsistent_delay"
+      ],
+      "source_json": {
+        "message_id": "SUP-005",
+        "subject": "Pine Office: PO-5107 date correction",
+        "body": "Pine Office says PO-5107 is delayed. Promised delivery date: 2026-11-10. Revised delivery date: 2026-11-08. Quantity: 80 units. Please confirm these dates with our coordinator."
+      },
+      "ai_json": "{\n  \"purchase_order\": \"PO-5107\",\n  \"supplier\": \"Pine Office\",\n  \"event_type\": \"delay\",\n  \"promised_date\": \"2026-11-10\",\n  \"revised_date\": \"2026-11-08\",\n  \"quantity\": 80,\n  \"summary\": \"PO-5107 delivery delayed from 10 Nov 2026 to 8 Nov 2026, with 80 units.\",\n  \"evidence_quote\": \"Promised delivery date: 2026-11-10. Revised delivery date: 2026-11-08.\",\n  \"confidence\": 0.95\n}"
+    },
+    {
+      "message_id": "SUP-006",
+      "created_at": "2026-10-30T13:59:23.373528+00:00",
+      "subject": "Summit Parts: PO-6012 production delay",
+      "route": "exception",
+      "priority": "normal",
+      "delay_days": 1,
+      "issues": [],
+      "source_json": {
+        "message_id": "SUP-006",
+        "subject": "Summit Parts: PO-6012 production delay",
+        "body": "Summit Parts update for PO-6012. Promised delivery date: 2026-11-04. Revised delivery date: 2026-11-05. Quantity: 50 units. A machine repair caused the one-day delay."
+      },
+      "ai_json": "{\n  \"purchase_order\": \"PO-6012\",\n  \"supplier\": \"Summit Parts\",\n  \"event_type\": \"delay\",\n  \"promised_date\": \"2026-11-04\",\n  \"revised_date\": \"2026-11-05\",\n  \"quantity\": 50,\n  \"summary\": \"One-day delay due to a machine repair.\",\n  \"evidence_quote\": \"A machine repair caused the one-day delay.\",\n  \"confidence\": 0.95\n}"
+    }
+  ]
+}

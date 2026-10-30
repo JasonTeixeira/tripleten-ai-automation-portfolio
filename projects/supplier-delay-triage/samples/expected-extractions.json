@@ -1,0 +1,50 @@
+{
+  "SUP-001": {
+    "purchase_order": "PO-1042",
+    "supplier": "Harbor Packaging",
+    "event_type": "delay",
+    "promised_date": "2026-11-02",
+    "revised_date": "2026-11-06",
+    "quantity": 400
+  },
+  "SUP-002": {
+    "purchase_order": "PO-2081",
+    "supplier": "Metro Components",
+    "event_type": "on_track",
+    "promised_date": "2026-11-03",
+    "revised_date": "2026-11-03",
+    "quantity": 120
+  },
+  "SUP-003": {
+    "purchase_order": "PO-3095",
+    "supplier": "Cedar Textiles",
+    "event_type": "short_shipment",
+    "promised_date": "2026-11-04",
+    "revised_date": null,
+    "quantity": 60
+  },
+  "SUP-004": {
+    "purchase_order": "PO-4100",
+    "supplier": "Atlas Supplies",
+    "event_type": "delay",
+    "promised_date": "2026-11-05",
+    "revised_date": null,
+    "quantity": 250
+  },
+  "SUP-005": {
+    "purchase_order": "PO-5107",
+    "supplier": "Pine Office",
+    "event_type": "delay",
+    "promised_date": "2026-11-10",
+    "revised_date": "2026-11-08",
+    "quantity": 80
+  },
+  "SUP-006": {
+    "purchase_order": "PO-6012",
+    "supplier": "Summit Parts",
+    "event_type": "delay",
+    "promised_date": "2026-11-04",
+    "revised_date": "2026-11-05",
+    "quantity": 50
+  }
+}

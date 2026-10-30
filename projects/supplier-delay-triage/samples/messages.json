@@ -1,0 +1,8 @@
+[
+ {"message_id":"SUP-001","subject":"Harbor Packaging: PO-1042 delivery update","body":"Harbor Packaging update for PO-1042. The promised delivery date was 2026-11-02. The revised delivery date is 2026-11-06 because of a production delay. Quantity: 400 units."},
+ {"message_id":"SUP-002","subject":"Metro Components: PO-2081 on schedule","body":"Metro Components confirms PO-2081 is on track. Promised delivery date: 2026-11-03. Current delivery date: 2026-11-03. Quantity: 120 units."},
+ {"message_id":"SUP-003","subject":"Cedar Textiles: PO-3095 partial shipment","body":"Cedar Textiles can ship only 60 of the 100 units ordered for PO-3095. The remaining 40 units have no confirmed delivery date. Promised delivery date: 2026-11-04."},
+ {"message_id":"SUP-004","subject":"Atlas Supplies: PO-4100 possible delay","body":"Atlas Supplies update for PO-4100: delivery might slip. We cannot confirm the new date yet. Promised delivery date: 2026-11-05. Quantity: 250 units."},
+ {"message_id":"SUP-005","subject":"Pine Office: PO-5107 date correction","body":"Pine Office says PO-5107 is delayed. Promised delivery date: 2026-11-10. Revised delivery date: 2026-11-08. Quantity: 80 units. Please confirm these dates with our coordinator."},
+ {"message_id":"SUP-006","subject":"Summit Parts: PO-6012 production delay","body":"Summit Parts update for PO-6012. Promised delivery date: 2026-11-04. Revised delivery date: 2026-11-05. Quantity: 50 units. A machine repair caused the one-day delay."}
+]

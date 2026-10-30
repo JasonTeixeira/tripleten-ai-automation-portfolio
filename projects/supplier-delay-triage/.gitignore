@@ -1,0 +1,5 @@
+.runtime/
+.coverage
+__pycache__/
+*.pyc
+presentation/.build/

@@ -1,0 +1,5 @@
+ Volume "tripleten-supplier-capstone_n8n_data"  Creating
+ Volume "tripleten-supplier-capstone_n8n_data"  Created
+ Container tripleten-supplier-capstone-ledger-1  Running
+ Container tripleten-supplier-capstone-ollama-1  Running
+2.45.7

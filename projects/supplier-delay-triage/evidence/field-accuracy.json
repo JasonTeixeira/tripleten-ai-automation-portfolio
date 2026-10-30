@@ -1,0 +1,266 @@
+{
+  "evaluation_type": "Retrospective field-by-field comparison against the six original fictional source messages",
+  "cases": 6,
+  "fields_per_case": 6,
+  "checks": 36,
+  "passed": 36,
+  "limitations": [
+    "Small controlled fixture set; not a blinded benchmark or general accuracy estimate.",
+    "Does not score confidence calibration, summary quality, or semantic support of evidence quotes.",
+    "The contradictory-date case is correctly extracted but requires human review; its AI summary is not approved operational advice."
+  ],
+  "details": [
+    {
+      "message_id": "SUP-001",
+      "field": "purchase_order",
+      "expected": "PO-1042",
+      "observed": "PO-1042",
+      "passed": true
+    },
+    {
+      "message_id": "SUP-001",
+      "field": "supplier",
+      "expected": "Harbor Packaging",
+      "observed": "Harbor Packaging",
+      "passed": true
+    },
+    {
+      "message_id": "SUP-001",
+      "field": "event_type",
+      "expected": "delay",
+      "observed": "delay",
+      "passed": true
+    },
+    {
+      "message_id": "SUP-001",
+      "field": "promised_date",
+      "expected": "2026-11-02",
+      "observed": "2026-11-02",
+      "passed": true
+    },
+    {
+      "message_id": "SUP-001",
+      "field": "revised_date",
+      "expected": "2026-11-06",
+      "observed": "2026-11-06",
+      "passed": true
+    },
+    {
+      "message_id": "SUP-001",
+      "field": "quantity",
+      "expected": 400,
+      "observed": 400,
+      "passed": true
+    },
+    {
+      "message_id": "SUP-002",
+      "field": "purchase_order",
+      "expected": "PO-2081",
+      "observed": "PO-2081",
+      "passed": true
+    },
+    {
+      "message_id": "SUP-002",
+      "field": "supplier",
+      "expected": "Metro Components",
+      "observed": "Metro Components",
+      "passed": true
+    },
+    {
+      "message_id": "SUP-002",
+      "field": "event_type",
+      "expected": "on_track",
+      "observed": "on_track",
+      "passed": true
+    },
+    {
+      "message_id": "SUP-002",
+      "field": "promised_date",
+      "expected": "2026-11-03",
+      "observed": "2026-11-03",
+      "passed": true
+    },
+    {
+      "message_id": "SUP-002",
+      "field": "revised_date",
+      "expected": "2026-11-03",
+      "observed": "2026-11-03",
+      "passed": true
+    },
+    {
+      "message_id": "SUP-002",
+      "field": "quantity",
+      "expected": 120,
+      "observed": 120,
+      "passed": true
+    },
+    {
+      "message_id": "SUP-003",
+      "field": "purchase_order",
+      "expected": "PO-3095",
+      "observed": "PO-3095",
+      "passed": true
+    },
+    {
+      "message_id": "SUP-003",
+      "field": "supplier",
+      "expected": "Cedar Textiles",
+      "observed": "Cedar Textiles",
+      "passed": true
+    },
+    {
+      "message_id": "SUP-003",
+      "field": "event_type",
+      "expected": "short_shipment",
+      "observed": "short_shipment",
+      "passed": true
+    },
+    {
+      "message_id": "SUP-003",
+      "field": "promised_date",
+      "expected": "2026-11-04",
+      "observed": "2026-11-04",
+      "passed": true
+    },
+    {
+      "message_id": "SUP-003",
+      "field": "revised_date",
+      "expected": null,
+      "observed": null,
+      "passed": true
+    },
+    {
+      "message_id": "SUP-003",
+      "field": "quantity",
+      "expected": 60,
+      "observed": 60,
+      "passed": true
+    },
+    {
+      "message_id": "SUP-004",
+      "field": "purchase_order",
+      "expected": "PO-4100",
+      "observed": "PO-4100",
+      "passed": true
+    },
+    {
+      "message_id": "SUP-004",
+      "field": "supplier",
+      "expected": "Atlas Supplies",
+      "observed": "Atlas Supplies",
+      "passed": true
+    },
+    {
+      "message_id": "SUP-004",
+      "field": "event_type",
+      "expected": "delay",
+      "observed": "delay",
+      "passed": true
+    },
+    {
+      "message_id": "SUP-004",
+      "field": "promised_date",
+      "expected": "2026-11-05",
+      "observed": "2026-11-05",
+      "passed": true
+    },
+    {
+      "message_id": "SUP-004",
+      "field": "revised_date",
+      "expected": null,
+      "observed": null,
+      "passed": true
+    },
+    {
+      "message_id": "SUP-004",
+      "field": "quantity",
+      "expected": 250,
+      "observed": 250,
+      "passed": true
+    },
+    {
+      "message_id": "SUP-005",
+      "field": "purchase_order",
+      "expected": "PO-5107",
+      "observed": "PO-5107",
+      "passed": true
+    },
+    {
+      "message_id": "SUP-005",
+      "field": "supplier",
+      "expected": "Pine Office",
+      "observed": "Pine Office",
+      "passed": true
+    },
+    {
+      "message_id": "SUP-005",
+      "field": "event_type",
+      "expected": "delay",
+      "observed": "delay",
+      "passed": true
+    },
+    {
+      "message_id": "SUP-005",
+      "field": "promised_date",
+      "expected": "2026-11-10",
+      "observed": "2026-11-10",
+      "passed": true
+    },
+    {
+      "message_id": "SUP-005",
+      "field": "revised_date",
+      "expected": "2026-11-08",
+      "observed": "2026-11-08",
+      "passed": true
+    },
+    {
+      "message_id": "SUP-005",
+      "field": "quantity",
+      "expected": 80,
+      "observed": 80,
+      "passed": true
+    },
+    {
+      "message_id": "SUP-006",
+      "field": "purchase_order",
+      "expected": "PO-6012",
+      "observed": "PO-6012",
+      "passed": true
+    },
+    {
+      "message_id": "SUP-006",
+      "field": "supplier",
+      "expected": "Summit Parts",
+      "observed": "Summit Parts",
+      "passed": true
+    },
+    {
+      "message_id": "SUP-006",
+      "field": "event_type",
+      "expected": "delay",
+      "observed": "delay",
+      "passed": true
+    },
+    {
+      "message_id": "SUP-006",
+      "field": "promised_date",
+      "expected": "2026-11-04",
+      "observed": "2026-11-04",
+      "passed": true
+    },
+    {
+      "message_id": "SUP-006",
+      "field": "revised_date",
+      "expected": "2026-11-05",
+      "observed": "2026-11-05",
+      "passed": true
+    },
+    {
+      "message_id": "SUP-006",
+      "field": "quantity",
+      "expected": 50,
+      "observed": 50,
+      "passed": true
+    }
+  ]
+}

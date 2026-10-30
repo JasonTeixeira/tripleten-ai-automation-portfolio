@@ -1,0 +1,65 @@
+{
+  "type": "object",
+  "properties": {
+    "purchase_order": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "supplier": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "delay",
+        "on_track",
+        "short_shipment",
+        "unclear"
+      ]
+    },
+    "promised_date": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "revised_date": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "quantity": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "summary": {
+      "type": "string"
+    },
+    "evidence_quote": {
+      "type": "string"
+    },
+    "confidence": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "purchase_order",
+    "supplier",
+    "event_type",
+    "promised_date",
+    "revised_date",
+    "quantity",
+    "summary",
+    "evidence_quote",
+    "confidence"
+  ],
+  "additionalProperties": false
+}

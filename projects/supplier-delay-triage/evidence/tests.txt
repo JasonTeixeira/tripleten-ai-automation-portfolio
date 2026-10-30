@@ -1,0 +1,39 @@
+test_evidence_views (test_api.ApiTests.test_evidence_views) ... ok
+test_health (test_api.ApiTests.test_health) ... ok
+test_intake (test_api.ApiTests.test_intake) ... ok
+test_invalid_input (test_api.ApiTests.test_invalid_input) ... ok
+test_large_payload (test_api.ApiTests.test_large_payload) ... ok
+test_malformed_payload (test_api.ApiTests.test_malformed_payload) ... ok
+test_record_and_read (test_api.ApiTests.test_record_and_read) ... ok
+test_unknown_get (test_api.ApiTests.test_unknown_get) ... ok
+test_unknown_post (test_api.ApiTests.test_unknown_post) ... ok
+test_captured_routes_match_expected (test_final_evidence.CapturedEvidenceTests.test_captured_routes_match_expected) ... ok
+test_duplicate_replay_audited (test_final_evidence.CapturedEvidenceTests.test_duplicate_replay_audited) ... ok
+test_three_real_n8n_runs_completed (test_final_evidence.CapturedEvidenceTests.test_three_real_n8n_runs_completed) ... ok
+test_ambiguous (test_workflow.WorkflowTests.test_ambiguous) ... ok
+test_bad_quantity (test_workflow.WorkflowTests.test_bad_quantity) ... ok
+test_boolean_confidence (test_workflow.WorkflowTests.test_boolean_confidence) ... ok
+test_csv_formula_safety (test_workflow.WorkflowTests.test_csv_formula_safety) ... ok
+test_duplicate_is_idempotent (test_workflow.WorkflowTests.test_duplicate_is_idempotent) ... ok
+test_empty_input (test_workflow.WorkflowTests.test_empty_input) ... ok
+test_invalid_date (test_workflow.WorkflowTests.test_invalid_date) ... ok
+test_invalid_input_types (test_workflow.WorkflowTests.test_invalid_input_types) ... ok
+test_invalid_summary (test_workflow.WorkflowTests.test_invalid_summary) ... ok
+test_llm_error (test_workflow.WorkflowTests.test_llm_error) ... ok
+test_low_confidence (test_workflow.WorkflowTests.test_low_confidence) ... ok
+test_missing_date_review (test_workflow.WorkflowTests.test_missing_date_review) ... ok
+test_missing_response (test_workflow.WorkflowTests.test_missing_response) ... ok
+test_on_time (test_workflow.WorkflowTests.test_on_time) ... ok
+test_overlong_input (test_workflow.WorkflowTests.test_overlong_input) ... ok
+test_po_substring_rejected (test_workflow.WorkflowTests.test_po_substring_rejected) ... ok
+test_required_nullable_fields_present (test_workflow.WorkflowTests.test_required_nullable_fields_present) ... ok
+test_reversed_delay (test_workflow.WorkflowTests.test_reversed_delay) ... ok
+test_unknown_event (test_workflow.WorkflowTests.test_unknown_event) ... ok
+test_unknown_po (test_workflow.WorkflowTests.test_unknown_po) ... ok
+test_unsupported_evidence (test_workflow.WorkflowTests.test_unsupported_evidence) ... ok
+test_valid_delay (test_workflow.WorkflowTests.test_valid_delay) ... ok
+
+----------------------------------------------------------------------
+Ran 34 tests in 0.592s
+
+OK
