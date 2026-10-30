@@ -3,3 +3,4 @@
 __pycache__/
 *.pyc
 presentation/.build/
+evidence/reviewer-fix/ledger-review.sqlite*

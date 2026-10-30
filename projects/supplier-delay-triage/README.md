@@ -18,6 +18,14 @@ A new workflow for a small wholesale or retail operations team. It converts unst
 
 This repository publishes the project files and evidence. The workflow is a tested local prototype, not a hosted inbox service. The downloadable ZIP contains the audited handoff with execution-resume tokens redacted and checksums regenerated; the repository adds these navigation links. Course submission is a separate step.
 
+## Reviewer-requested implementation evidence revision
+
+The original 14-slide presentation and its 34-test evidence remain available above. A local revision adds a native n8n Switch and three visible outcome branches, expands verification to **42 passing tests**, and preserves the original business-rule validator.
+
+The new actual run routes **2 exceptions, 1 routine item and 3 manual reviews**. SUP-003 enters review because the new model response changed the capitalization of its source quote, which fails the exact-quote check. All 36 checked core extraction fields still match the source fixtures. The original **3 exceptions / 1 routine / 2 reviews** is a separate earlier run, not the new run's result.
+
+The n8n owner-account setup must finish before the required editor configuration screenshots can be captured. Those screenshots and the revised presentation are **not yet complete**. See [revision status](evidence/reviewer-fix/REVISION-STATUS.md). This status is kept explicit so the original submission is not mistaken for an approved revision.
+
 ## Manual process and business value
 
 1. Open each supplier email and find the purchase-order number.
@@ -32,7 +40,7 @@ Reading and copying are repetitive. Missing an exception can leave staff plannin
 
 ## Connected services
 
-- **n8n 2.45.7** orchestrates the workflow using a manual batch trigger and seven nodes.
+- **n8n 2.45.7** orchestrates the workflow using a manual batch trigger and eleven nodes.
 - **Ollama / Qwen2.5 3B** (a CPU-only runtime built from official Ollama binaries) is a real local LLM service, called over HTTP with a custom prompt and JSON Schema.
 - **Operations Ledger API / SQLite** provides external input from uploaded JSON fixtures and persists structured output and an audit trail.
 

@@ -64,17 +64,29 @@ add(
     500,
     1,
 )
-request = {
-    "model": "qwen2.5:3b",
-    "stream": False,
-    "format": schema,
-    "options": {"temperature": 0, "num_ctx": 4096, "num_predict": 500, "num_thread": 4},
-    "messages": [{"role": "system", "content": prompt}],
-}
 prepare = (
-    "const request="
-    + json.dumps(request)
-    + "; return $input.all().map((item,i)=>({json:{source:item.json,request:{...request,messages:[...request.messages,{role:'user',content:JSON.stringify(item.json)}]}},pairedItem:{item:i}}));"
+    "const systemPrompt = "
+    + json.dumps(prompt.split("\n"), indent=2)
+    + '.join("\\n");\n\n'
+    + "const outputSchema = "
+    + json.dumps(schema, indent=2)
+    + ";\n\n"
+    + """return $input.all().map((item, index) => ({
+  json: {
+    source: item.json,
+    request: {
+      model: "qwen2.5:3b",
+      stream: false,
+      format: outputSchema,
+      options: { temperature: 0, num_ctx: 4096, num_predict: 500, num_thread: 4 },
+      messages: [
+        { role: "system", content: systemPrompt },
+        { role: "user", content: JSON.stringify(item.json) }
+      ]
+    }
+  },
+  pairedItem: { item: index }
+}));"""
 )
 add("Prepare AI Request", "code", {"jsCode": prepare}, 650, 2)
 body = "={{ $json.request }}"
@@ -96,7 +108,15 @@ add(
     4.2,
     onError="continueRegularOutput",
 )
-prepareRecord = "return $input.all().map((item,i)=>({json:{source:$('Prepare AI Request').itemMatching(i).json.source,ai:item.json.message ? item.json.message.content : {error:'llm_unavailable'}},pairedItem:{item:i}}));"
+prepareRecord = """return $input.all().map((item, index) => ({
+  json: {
+    source: $("Prepare AI Request").itemMatching(index).json.source,
+    ai: item.json.message
+      ? item.json.message.content
+      : { error: "llm_unavailable" }
+  },
+  pairedItem: { item: index }
+}));"""
 add("Prepare Ledger Record", "code", {"jsCode": prepareRecord}, 900, 2)
 record = "={{ $json }}"
 add(
@@ -199,5 +219,5 @@ for node in failure["nodes"]:
     json.dumps(failure, indent=2)
 )
 print(
-    "Built 11-node n8n workflow with visible routes with local LLM, validation, routing and durable logging."
+    "Built 11-node n8n workflow with visible routes, local LLM, validation, routing and durable logging."
 )

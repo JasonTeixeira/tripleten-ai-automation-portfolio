@@ -1,0 +1,51 @@
+test_intake_and_persistence_surround_real_llm_call (test_workflow_graph.WorkflowGraphTests.test_intake_and_persistence_surround_real_llm_call) ... ERROR
+test_outcomes_connected_to_visible_branches (test_workflow_graph.WorkflowGraphTests.test_outcomes_connected_to_visible_branches) ... FAIL
+test_three_explicit_route_conditions (test_workflow_graph.WorkflowGraphTests.test_three_explicit_route_conditions) ... FAIL
+test_unmatched_routes_fall_back_to_manual_review (test_workflow_graph.WorkflowGraphTests.test_unmatched_routes_fall_back_to_manual_review) ... FAIL
+
+======================================================================
+ERROR: test_intake_and_persistence_surround_real_llm_call (test_workflow_graph.WorkflowGraphTests.test_intake_and_persistence_surround_real_llm_call)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/Sage/code/active/tripleten-capstone-publish/projects/supplier-delay-triage/tests/test_workflow_graph.py", line 54, in test_intake_and_persistence_surround_real_llm_call
+    next_node = self.workflow['connections']['Validate Route And Record']['main'][0][0]['node']
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'Validate Route And Record'
+
+======================================================================
+FAIL: test_outcomes_connected_to_visible_branches (test_workflow_graph.WorkflowGraphTests.test_outcomes_connected_to_visible_branches)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/Sage/code/active/tripleten-capstone-publish/projects/supplier-delay-triage/tests/test_workflow_graph.py", line 36, in test_outcomes_connected_to_visible_branches
+    switch = self.switch()
+             ^^^^^^^^^^^^^
+  File "/Users/Sage/code/active/tripleten-capstone-publish/projects/supplier-delay-triage/tests/test_workflow_graph.py", line 20, in switch
+    self.assertEqual(len(matches), 1, 'Expose the three outcomes through a native n8n Switch')
+AssertionError: 0 != 1 : Expose the three outcomes through a native n8n Switch
+
+======================================================================
+FAIL: test_three_explicit_route_conditions (test_workflow_graph.WorkflowGraphTests.test_three_explicit_route_conditions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/Sage/code/active/tripleten-capstone-publish/projects/supplier-delay-triage/tests/test_workflow_graph.py", line 24, in test_three_explicit_route_conditions
+    node = self.switch()
+           ^^^^^^^^^^^^^
+  File "/Users/Sage/code/active/tripleten-capstone-publish/projects/supplier-delay-triage/tests/test_workflow_graph.py", line 20, in switch
+    self.assertEqual(len(matches), 1, 'Expose the three outcomes through a native n8n Switch')
+AssertionError: 0 != 1 : Expose the three outcomes through a native n8n Switch
+
+======================================================================
+FAIL: test_unmatched_routes_fall_back_to_manual_review (test_workflow_graph.WorkflowGraphTests.test_unmatched_routes_fall_back_to_manual_review)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/Sage/code/active/tripleten-capstone-publish/projects/supplier-delay-triage/tests/test_workflow_graph.py", line 43, in test_unmatched_routes_fall_back_to_manual_review
+    switch = self.switch()
+             ^^^^^^^^^^^^^
+  File "/Users/Sage/code/active/tripleten-capstone-publish/projects/supplier-delay-triage/tests/test_workflow_graph.py", line 20, in switch
+    self.assertEqual(len(matches), 1, 'Expose the three outcomes through a native n8n Switch')
+AssertionError: 0 != 1 : Expose the three outcomes through a native n8n Switch
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+FAILED (failures=3, errors=1)
