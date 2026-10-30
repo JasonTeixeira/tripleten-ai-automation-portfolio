@@ -116,11 +116,62 @@ add(
     maxTries=3,
     waitBetweenTries=1000,
 )
+# Expose backend-validated outcomes directly on the n8n canvas.
+routing_rules = []
+for value, label in [
+    ("exception", "Exception"),
+    ("logged", "Routine Log"),
+    ("manual_review", "Manual Review"),
+]:
+    routing_rules.append(
+        {
+            "conditions": {
+                "options": {
+                    "caseSensitive": True,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2,
+                },
+                "conditions": [
+                    {
+                        "id": "route-" + value,
+                        "leftValue": "={{ $json.route }}",
+                        "rightValue": value,
+                        "operator": {"type": "string", "operation": "equals"},
+                    }
+                ],
+                "combinator": "and",
+            },
+            "renameOutput": True,
+            "outputKey": label,
+        }
+    )
+add(
+    "Route Delivery Outcomes",
+    "switch",
+    {
+        "rules": {"values": routing_rules},
+        "options": {"fallbackOutput": "extra"},
+    },
+    1820,
+    3.3,
+)
+for label, y in [("Exception", 100), ("Routine Log", 300), ("Manual Review", 500)]:
+    add(label, "noOp", {}, 2080)
+    nodes[-1]["position"][1] = y
+for index, node in enumerate(nodes[:8]):
+    node["position"] = [index * 260, 300]
 connections = {}
-for a, b in zip(nodes, nodes[1:]):
+for a, b in zip(nodes[:8], nodes[1:8]):
     connections[a["name"]] = {
         "main": [[{"node": b["name"], "type": "main", "index": 0}]]
     }
+connections["Route Delivery Outcomes"] = {
+    "main": [
+        [{"node": name, "type": "main", "index": 0}]
+        for name in ["Exception", "Routine Log", "Manual Review", "Manual Review"]
+    ]
+}
 workflow = {
     "id": "supplierDelayCapstone2026",
     "name": "Supplier Delay Triage | TripleTen Final | Jason Teixeira",
@@ -148,5 +199,5 @@ for node in failure["nodes"]:
     json.dumps(failure, indent=2)
 )
 print(
-    "Built 7-node n8n workflow with local LLM, validation, routing and durable logging."
+    "Built 11-node n8n workflow with visible routes with local LLM, validation, routing and durable logging."
 )

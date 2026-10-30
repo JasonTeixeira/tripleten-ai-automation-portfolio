@@ -19,7 +19,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        250,
+        260,
         300
       ],
       "parameters": {
@@ -33,7 +33,7 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        500,
+        520,
         300
       ],
       "parameters": {
@@ -47,7 +47,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        650,
+        780,
         300
       ],
       "parameters": {
@@ -60,7 +60,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        750,
+        1040,
         300
       ],
       "parameters": {
@@ -81,7 +81,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        900,
+        1300,
         300
       ],
       "parameters": {
@@ -94,7 +94,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1000,
+        1560,
         300
       ],
       "parameters": {
@@ -110,6 +110,130 @@
       "retryOnFail": true,
       "maxTries": 3,
       "waitBetweenTries": 1000
+    },
+    {
+      "id": "route-delivery-outcomes",
+      "name": "Route Delivery Outcomes",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.3,
+      "position": [
+        1820,
+        300
+      ],
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "route-exception",
+                    "leftValue": "={{ $json.route }}",
+                    "rightValue": "exception",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Exception"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "route-logged",
+                    "leftValue": "={{ $json.route }}",
+                    "rightValue": "logged",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Routine Log"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "route-manual_review",
+                    "leftValue": "={{ $json.route }}",
+                    "rightValue": "manual_review",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Manual Review"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      }
+    },
+    {
+      "id": "exception",
+      "name": "Exception",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2080,
+        100
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "routine-log",
+      "name": "Routine Log",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2080,
+        300
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "manual-review",
+      "name": "Manual Review",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2080,
+        500
+      ],
+      "parameters": {}
     }
   ],
   "connections": {
@@ -173,6 +297,49 @@
         [
           {
             "node": "Validate Route And Record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Route And Record": {
+      "main": [
+        [
+          {
+            "node": "Route Delivery Outcomes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route Delivery Outcomes": {
+      "main": [
+        [
+          {
+            "node": "Exception",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Routine Log",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Manual Review",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Manual Review",
             "type": "main",
             "index": 0
           }
