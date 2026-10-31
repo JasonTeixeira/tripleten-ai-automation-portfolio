@@ -6,6 +6,7 @@ AI automation projects, workflow designs, analyses, and presentations completed 
 
 | Project | Format | Description |
 | --- | --- | --- |
+| [Career Project Resume](projects/career-resume/) | Resume and job search strategy | A two-page resume with three portfolio projects, editable sources, and a focused job search plan. |
 | [Supplier Delay Triage — Final Capstone](projects/supplier-delay-triage/) | n8n + local LLM + SQLite | Tested supplier-update automation with custom AI extraction, validation, review routing, audit logs, a revised 32-slide presentation with actual node configurations, and a downloadable submission package. |
 | [Automated Customer Feedback Analysis](projects/automated-feedback-analysis/) | Make + AI Workflow | An automated pipeline that collects feedback via Google Forms, classifies sentiment and summarizes each message with Gemini 2.5 Flash, logs structured results to Google Sheets, and emails a real-time alert on negative feedback. |
 | [AI-Powered Customer Support Workflow](projects/ai-powered-customer-support-workflow/) | Presentation | A 10-slide workflow proposal for using AI to support customer-service operations, including a complaints process. |
