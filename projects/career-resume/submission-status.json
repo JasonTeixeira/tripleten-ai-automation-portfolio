@@ -8,7 +8,9 @@
   "native_google_docs_created": false,
   "anyone_with_link_commenter_verified": false,
   "drive_blocker": "Google sharing returned unavailable. Native Docs import method awaits browser workflow choice or Google Drive connector.",
-  "course_project_submitted": false,
+  "course_project_submitted": true,
   "drive_source_files_uploaded": true,
-  "drive_folder_url": "https://drive.google.com/drive/u/0/folders/1boKDeBpM73q16NduaKmTAan8IRsseQ3j"
+  "drive_folder_url": "https://drive.google.com/drive/u/0/folders/1boKDeBpM73q16NduaKmTAan8IRsseQ3j",
+  "course_review_status": "under_review",
+  "course_submission_verified_on": "2026-10-31"
 }
